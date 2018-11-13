@@ -123,6 +123,19 @@ server/fast:
 	$(MAKE) -f imageServer/CMakeFiles/server.dir/build.make imageServer/CMakeFiles/server.dir/build
 .PHONY : server/fast
 
+#=============================================================================
+# Target rules for targets named client
+
+# Build rule for target.
+client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 client
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	$(MAKE) -f imageServer/client/CMakeFiles/client.dir/build.make imageServer/client/CMakeFiles/client.dir/build
+.PHONY : client/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -132,6 +145,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... server"
+	@echo "... client"
 .PHONY : help
 
 

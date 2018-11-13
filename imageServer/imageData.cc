@@ -2,6 +2,7 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/stitching/stitcher.hpp"
 #include "base/utility.h"
+#include <unistd.h>
 
 using namespace std;
 using namespace cv;
@@ -16,47 +17,58 @@ imageData::imageData(EventLoop *loop, int connfd):
         channel_(new Channel(loop_, connfd_))
         {
             channel_->setReadResponse(bind(&imageData::handleRead, this));
-            channel_->setWriteResponse(bind(&imageData::handleWrite, this));
-            //channel_->setErrorResponse(bind(&imageData::handleError, this));
+            //channel_->setWriteResponse(bind(&imageData::handleWrite, this));
+            channel_->setErrorResponse(bind(&imageData::handleError, this));
+
+            // channel_->setEvents(EPOLLIN | EPOLLOUT);
+            // loop_->addToPoller(channel_);   
         }
 void imageData::stitch(){
+    cout << "stitching.." << endl;
     vector<Mat> imgs;
-    for(int i = 0; i < imgs.size(); i++)
+    for(int i = 0; i < names_.size(); i++)
         imgs.push_back(imread(names_[i]));
     Mat pano;
     Stitcher stitcher = Stitcher::createDefault();
     Stitcher::Status status = stitcher.stitch(imgs, pano);
-
+    
     if(status != Stitcher::OK)
         outBuffer_ = "can't stitch images ,error code = ERR_NEED_MORE_IMGS";
-    else
+    else{
+        imwrite("result.jpg", pano);
         outBuffer_ = "stitch success!";
-
-    handleWrite();
-    
-
+    }
+    cout << outBuffer_.c_str() << endl;
+    //handleWrite();
 }
 
 void imageData::handleRead()
 {
-    bool zero = false;
-    int numOfRead = readn(connfd_, inBuffer_, zero);
+    cout << "imageData::handleRead()"<<endl;
+    // int numOfRead = readn(connfd_, inBuffer_);
+    // if(numOfRead < 0){
+    //     handleError();
+    //     error_ = true;
+    //     return ;
+    // }
+    char in[2048];
+    int numOfRead = read(connfd_, in, 2048);
     if(numOfRead < 0){
         handleError();
         error_ = true;
         return ;
-    }else if(zero){
-        //有请求但未读到数据
-        error_ = true;
-        handleError();
     }
+    inBuffer_ = in;
     splitString(inBuffer_, " ", names_);
-    stitch();
+    cout << inBuffer_ << endl;
+    //stitch();
 }
 
 void imageData::handleWrite()
 {
     //加入连接状态检测 connectionState
+    cout << "imageData writing.." << endl;
+    //string out = "imageData writing..";
     if(!error_){
         if(writen(connfd_, outBuffer_) < 0){
             perror("writen");

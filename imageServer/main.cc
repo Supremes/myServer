@@ -6,15 +6,13 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int port = 5555;
-    if(argc < 2){
-        cout << "please input port" << endl;
-    }
-    else
+    int port = 6666;
+    if(argc == 2)
         port = atoi(argv[1]);
     EventLoop *mainLoop = new EventLoop();
     server imageServer(mainLoop, port, 4);
     imageServer.start();
+    //int listenFd = imageServer.getListenFd_();
     mainLoop->loop();
     return 0;
 }

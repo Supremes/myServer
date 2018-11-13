@@ -64,16 +64,18 @@ CMAKE_BINARY_DIR = /home/supreme/djk/imageServer/build
 
 # Convenience name for "all" pass in the directory.
 imageServer/all: imageServer/CMakeFiles/server.dir/all
+imageServer/all: imageServer/client/all
 
 .PHONY : imageServer/all
 
 # Convenience name for "clean" pass in the directory.
 imageServer/clean: imageServer/CMakeFiles/server.dir/clean
+imageServer/clean: imageServer/client/clean
 
 .PHONY : imageServer/clean
 
 # Convenience name for "preinstall" pass in the directory.
-imageServer/preinstall:
+imageServer/preinstall: imageServer/client/preinstall
 
 .PHONY : imageServer/preinstall
 
@@ -84,7 +86,7 @@ imageServer/preinstall:
 imageServer/CMakeFiles/server.dir/all:
 	$(MAKE) -f imageServer/CMakeFiles/server.dir/build.make imageServer/CMakeFiles/server.dir/depend
 	$(MAKE) -f imageServer/CMakeFiles/server.dir/build.make imageServer/CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/supreme/djk/imageServer/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/supreme/djk/imageServer/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target server"
 .PHONY : imageServer/CMakeFiles/server.dir/all
 
 # Include target in all.
@@ -111,6 +113,61 @@ imageServer/CMakeFiles/server.dir/clean:
 
 # clean rule for target.
 clean: imageServer/CMakeFiles/server.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory imageServer/client
+
+# Convenience name for "all" pass in the directory.
+imageServer/client/all: imageServer/client/CMakeFiles/client.dir/all
+
+.PHONY : imageServer/client/all
+
+# Convenience name for "clean" pass in the directory.
+imageServer/client/clean: imageServer/client/CMakeFiles/client.dir/clean
+
+.PHONY : imageServer/client/clean
+
+# Convenience name for "preinstall" pass in the directory.
+imageServer/client/preinstall:
+
+.PHONY : imageServer/client/preinstall
+
+#=============================================================================
+# Target rules for target imageServer/client/CMakeFiles/client.dir
+
+# All Build rule for target.
+imageServer/client/CMakeFiles/client.dir/all:
+	$(MAKE) -f imageServer/client/CMakeFiles/client.dir/build.make imageServer/client/CMakeFiles/client.dir/depend
+	$(MAKE) -f imageServer/client/CMakeFiles/client.dir/build.make imageServer/client/CMakeFiles/client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/supreme/djk/imageServer/build/CMakeFiles --progress-num=1,2 "Built target client"
+.PHONY : imageServer/client/CMakeFiles/client.dir/all
+
+# Include target in all.
+all: imageServer/client/CMakeFiles/client.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+imageServer/client/CMakeFiles/client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/supreme/djk/imageServer/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 imageServer/client/CMakeFiles/client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/supreme/djk/imageServer/build/CMakeFiles 0
+.PHONY : imageServer/client/CMakeFiles/client.dir/rule
+
+# Convenience name for target.
+client: imageServer/client/CMakeFiles/client.dir/rule
+
+.PHONY : client
+
+# clean rule for target.
+imageServer/client/CMakeFiles/client.dir/clean:
+	$(MAKE) -f imageServer/client/CMakeFiles/client.dir/build.make imageServer/client/CMakeFiles/client.dir/clean
+.PHONY : imageServer/client/CMakeFiles/client.dir/clean
+
+# clean rule for target.
+clean: imageServer/client/CMakeFiles/client.dir/clean
 
 .PHONY : clean
 

@@ -5,7 +5,7 @@
 #include <memory>
 #include <sys/epoll.h>
 #include <functional>
-
+#include <iostream>
 using namespace std;
 
 class EventLoop;
@@ -26,7 +26,7 @@ public:
 	}
 	void setConnResponse(callBack_ connCallback)
 	{
-		connCallback = connCallback_;
+		connCallback_ = connCallback;
 	}
 	void setErrorResponse(callBack_ errorCallback)
 	{

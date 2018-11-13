@@ -1,4 +1,7 @@
 #include "Channel.h"
+#include <iostream>
+using namespace std;
+
 // #include "EventLoop.h"
 //#include "httpData.h"
 
@@ -44,13 +47,17 @@ void Channel::handleError()
 void Channel::handleEvents()
 {
 	if(revents_ & EPOLLERR){
+		cout << "handleError..." << endl;
 		handleError();
 	}
 	if(revents_ & EPOLLIN){
+		cout << "handleRead..." << endl;
 		handleRead();
 	}
 	if(revents_ & EPOLLOUT){
+		cout << "handleWrite..." << endl;
 		handleWrite();
 	}
-
+	//cout << "handleConn..." << endl;
+	handleConn();
 }

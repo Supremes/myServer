@@ -1,15 +1,17 @@
 #include "utility.h"
 
-const int MAXBUF = 2048;
+const int MAX_BUFF = 2048;
 
-int setSocketNonBlocking(int &fd)
+int setSocketNonBlocking(int fd)
 {
 	int flag = fcntl(fd, F_GETFL, 0);
-	if(flag == -1)
+	if(flag == -1){
 		return -1;
-	fd |= O_NONBLOCK;
-	if((flag = fcntl(fd, F_SETFL, flag)) == -1)
+    }
+	flag |= O_NONBLOCK;
+	if(fcntl(fd, F_SETFL, flag) == -1){
 		return -1;
+    }
 	return 0;
 }
 
@@ -58,33 +60,72 @@ int socket_bind_listen(int port)
     return listen_fd;
 }
 
-ssize_t readn(int fd, string &inBuffer_, bool &zero)
+ssize_t readn(int fd, std::string &inBuffer, bool &zero)
 {
-	int readNum = 0;
-	int resNum = 0;
-	while(true){
-		char buf[MAXBUF + 1];
-		if((readNum = read(fd, buf, MAXBUF)) < 0){
-			if (errno == EINTR)
-                resNum = 0;
+    ssize_t nread = 0;
+    ssize_t readSum = 0;
+    while (true)
+    {
+        char buff[MAX_BUFF];
+        if ((nread = read(fd, buff, MAX_BUFF)) < 0)
+        {
+            if (errno == EINTR)
+                continue;
             else if (errno == EAGAIN)
             {
-                return resNum;
-            }
+                return readSum;
+            }  
             else
             {
+                perror("read error");
                 return -1;
-            } 			
-		}else if(readNum == 0){
-			zero = true;
-			break;
-		}
-		inBuffer_ += string(buf, buf + readNum);
-		resNum += readNum;
-	}
-	return resNum;
+            }
+        }
+        else if (nread == 0)
+        {
+            zero = true;
+            break;
+        }
+        readSum += nread;
+        inBuffer += std::string(buff, buff + nread);
+    }
+    return readSum;
 }
-
+ssize_t readn(int fd, std::string &inBuffer)
+{
+    ssize_t nread = 0;
+    ssize_t readSum = 0;
+    while (true)
+    {
+        char buff[MAX_BUFF];
+        if ((nread = read(fd, buff, MAX_BUFF)) < 0)
+        {
+            if (errno == EINTR)
+                continue;
+            else if (errno == EAGAIN)
+            {
+                return readSum;
+            }  
+            else
+            {
+                perror("read error");
+                return -1;
+            }
+        }
+        else if (nread == 0)
+        {
+            //printf("redsum = %d\n", readSum);
+            break;
+        }
+        //printf("before inBuffer.size() = %d\n", inBuffer.size());
+        //printf("nread = %d\n", nread);
+        readSum += nread;
+        //buff += nread;
+        inBuffer += std::string(buff, buff + nread);
+        //printf("after inBuffer.size() = %d\n", inBuffer.size());
+    }
+    return readSum;
+}
 ssize_t writen(int fd, string &outBuffer){
 	int resNum = 0;
 	int writeNum = 0;
@@ -135,6 +176,21 @@ void splitString(const string &s, const string &p,
         result.push_back(s.substr(begin));
 }
 
+void setSocketNodelay(int fd) 
+{
+    int enable = 1;
+    setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, (void*)&enable, sizeof(enable));
+}
+
+void handle_for_sigpipe()
+{
+    struct sigaction sa;
+    memset(&sa, '\0', sizeof(sa));
+    sa.sa_handler = SIG_IGN;
+    sa.sa_flags = 0;
+    if(sigaction(SIGPIPE, &sa, NULL))
+        return;
+}
 // unique_ptr<int> thread_func()
 // {
 // 	unique_ptr<int> a(new int(2));
@@ -144,29 +200,34 @@ void splitString(const string &s, const string &p,
 // }
 // int main(int argc, char const *argv[])
 // {
-// 	string requestHead = "Connection: Keep-Alive\r\nHost: 127.0.0.1:5555\r\n";
-// 	vector<string> res;
-// 	splitString(requestHead, "\r\n", res);
-// 	cout << res[0] << endl << res[1] << endl;
-// 	cout << "pos = " << requestHead.find("\n");
-// 	do{
-// 		cout << "in while" << endl;
-// 	}while(false);
-//
-// 	shared_ptr<int> p1(new int(1));
-// 	{
-// 		shared_ptr<int> p2 = p1;
-// 		cout << "p1 count = " << p1.use_count() << endl;
-// 		cout << "p2 count = " << p2.use_count() << endl;
-// 	}
-// 	unique_ptr<int> p3(new int(2));
-// 	unique_ptr<int> p4 = move(p3);
-// 	cout << "p1 count = " << p1.use_count() << endl;
-// 	cout << "p4 = " << *p4 << endl;
+	// string requestHead = "Connection: Keep-Alive\r\nHost: 127.0.0.1:5555\r\n";
+	// vector<string> res;
+	// splitString(requestHead, "\r\n", res);
+	// cout << res[0] << endl << res[1] << endl;
+	// cout << "pos = " << requestHead.find("\n");
+	// do{
+	// 	cout << "in while" << endl;
+	// }while(false);
 
-// 	unique_ptr<int> b = move(thread_func());
-// 	cout << *b << endl;
+	// shared_ptr<int> p1(new int(1));
+	// {
+	// 	shared_ptr<int> p2 = p1;
+	// 	cout << "p1 count = " << p1.use_count() << endl;
+	// 	cout << "p2 count = " << p2.use_count() << endl;
+	// }
+	// unique_ptr<int> p3(new int(2));
+	// unique_ptr<int> p4 = move(p3);
+	// cout << "p1 count = " << p1.use_count() << endl;
+	// cout << "p4 = " << *p4 << endl;
 
-// 	cout <<  "同时并发在一个程序中的线程数量: " << thread::hardware_concurrency() << endl;
+	// unique_ptr<int> b = move(thread_func());
+	// cout << *b << endl;
+
+	//cout <<  "同时并发在一个程序中的线程数量: " << thread::hardware_concurrency() << endl;
+//     int fd = open("1.txt", O_WRONLY, 0777);
+//     cout << fd << endl;
+//     string res;
+//     int numOfRead = readn(fd, res);
+//     cout << res << endl;
 // 	return 0;
 // }

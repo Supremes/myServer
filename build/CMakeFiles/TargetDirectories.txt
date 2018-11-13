@@ -3,3 +3,6 @@
 /home/supreme/djk/imageServer/build/imageServer/CMakeFiles/edit_cache.dir
 /home/supreme/djk/imageServer/build/imageServer/CMakeFiles/rebuild_cache.dir
 /home/supreme/djk/imageServer/build/imageServer/CMakeFiles/server.dir
+/home/supreme/djk/imageServer/build/imageServer/client/CMakeFiles/rebuild_cache.dir
+/home/supreme/djk/imageServer/build/imageServer/client/CMakeFiles/edit_cache.dir
+/home/supreme/djk/imageServer/build/imageServer/client/CMakeFiles/client.dir

@@ -32,8 +32,8 @@ struct TimerCmp{
 
 class timerNodeManager{
 public:
-	timerNodeManager();
-	~timerNodeManager();
+	// timerNodeManager();
+	// ~timerNodeManager();
 	void addTimer(shared_ptr<imageData> spImageData, int timeout);
 	void handleExpiredEvent();
 

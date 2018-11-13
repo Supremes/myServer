@@ -19,6 +19,7 @@ public:
 	//poll获得当前活动的IO事件被绑定到Channel
 	vector<spChannel> poll();
 	void handleExpired();
+	vector<spChannel> getEventsRequest(int events_num);
 
 private:
 	int epollfd_;

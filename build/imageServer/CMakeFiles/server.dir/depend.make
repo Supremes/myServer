@@ -196,6 +196,9 @@ imageServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/xfe
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/Channel.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/Epoller.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/EventLoop.h
+imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/EventLoopThread.h
+imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/EventLoopThreadPool.h
+imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/Condition.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/CurrentThread.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/MutexLock.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/Thread.h
@@ -206,6 +209,9 @@ imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/server.h
 imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/Channel.h
 imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/Epoller.h
 imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/EventLoop.h
+imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/EventLoopThread.h
+imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/EventLoopThreadPool.h
+imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/base/Condition.h
 imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/base/CurrentThread.h
 imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/base/MutexLock.h
 imageServer/CMakeFiles/server.dir/server.cc.o: ../imageServer/base/Thread.h
