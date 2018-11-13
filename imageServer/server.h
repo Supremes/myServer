@@ -13,7 +13,7 @@ public:
 	void handleNewConnection();
 	void handleThisConnection()
 	{
-		// cout << "server::handleThisConnection..." << endl;
+		cout << "server::handleThisConnection..." << endl;
 		// string str = "connect success!\n";
 		// if(writen(listenfd_, str) <= 0)
 		// 	perror("write first connect");

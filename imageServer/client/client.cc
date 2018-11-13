@@ -39,14 +39,14 @@ int main(int argc, char const *argv[])
     if(connect(sockfd, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0){
         perror("can't connect server");
     }
-    if(setSocketNonBlocking1(sockfd))
-        perror("sockfd set nonblock failed!");
+    // if(setSocketNonBlocking1(sockfd))
+    //     perror("sockfd set nonblock failed!");
     char send[1000] = "images/s1.jpg images/s2.jpg", recv[1000];
     // while(fgets(send, 1000, stdin) != NULL){
     write(sockfd, send, strlen(send));
     while(true){
         int numOfRead;
-        if((numOfRead = read(sockfd, recv, 1000)) > 0))
+        if((numOfRead = read(sockfd, recv, 1000)) > 0)
         {
             cout << "read something:" << endl;
             fputs(recv, stdout);

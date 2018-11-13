@@ -98,7 +98,7 @@ void EventLoop::doPendingFunctors()
 		MutexLock lock(mutex_);
 		functors.swap(pendingFunctors_);
 	}
-	cout << "functors's size : " << functors.size() << endl;
+	//cout << "functors's size : " << functors.size() << endl;
 	for(size_t i = 0; i < functors.size(); i++)
 		functors[i]();
 
@@ -122,16 +122,16 @@ void EventLoop::loop()
 
 	while(!quit_){
 		channelList.clear();
-		cout << "1. poll...." << endl;
+		//cout << "1. poll...." << endl;
 		channelList = epoller_->poll();
-		cout <<"channelList fd:"; 
-		for(auto &ret: channelList)
-			cout << ret->getFd() << "\t";
-		cout << endl;
-		cout << "2.handleEvents...." << endl;
+		// cout <<"channelList fd:"; 
+		// for(auto &ret: channelList)
+		// 	cout << ret->getFd() << "\t";
+		// cout << endl;
+		//cout << "2.handleEvents...." << endl;
 		for(auto &ret: channelList)
 			ret->handleEvents();
-		cout << "3.doPendingFunctors..." << endl;
+		//cout << "3.doPendingFunctors..." << endl;
 		doPendingFunctors();
 		// cout << "4.handleExpired..." << endl;
 		// epoller_->handleExpired();

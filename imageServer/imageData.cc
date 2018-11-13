@@ -3,7 +3,7 @@
 #include "opencv2/stitching/stitcher.hpp"
 #include "base/utility.h"
 #include <unistd.h>
-
+#include <cstring>
 using namespace std;
 using namespace cv;
 
@@ -61,6 +61,8 @@ void imageData::handleRead()
     inBuffer_ = in;
     splitString(inBuffer_, " ", names_);
     cout << inBuffer_ << endl;
+    char send[1000] = "received\n";
+    write(connfd_, send, strlen(send));
     //stitch();
 }
 
@@ -68,7 +70,7 @@ void imageData::handleWrite()
 {
     //加入连接状态检测 connectionState
     cout << "imageData writing.." << endl;
-    //string out = "imageData writing..";
+    //outBuffer_ = "imageData writing..";
     if(!error_){
         if(writen(connfd_, outBuffer_) < 0){
             perror("writen");

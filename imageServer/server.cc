@@ -54,7 +54,8 @@ void server::handleNewConnection()
 		}
 		
 		setSocketNodelay(accept_fd);
-		shared_ptr<imageData> accept_http(new imageData(loop_, accept_fd));
+		//shared_ptr<imageData> accept_http(new imageData(loop_, accept_fd));
+		imageData accept_http(loop_, accept_fd);
 		//accept_http->getChannel()->setHolder(accept_http);
 		loop_->runInLoop(bind(&imageData::handleNewEvent, accept_http));	//加入到pendingFuntors
 	}

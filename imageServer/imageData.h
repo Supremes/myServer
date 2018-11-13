@@ -9,7 +9,7 @@ using namespace std;
 class imageData{
 public:
     imageData(EventLoop *loop, int connfd);
-    ~imageData(){   close(connfd_); }
+    ~imageData(){  cout << "imageData destructing!\n"; close(connfd_); }
 
     void stitch();
 
