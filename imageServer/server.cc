@@ -38,7 +38,7 @@ server::~server()
 	for(ConnectionMap::iterator it = connections_.begin(); it != connections_.end(); it++){
 		imageDataPtr conn(it->second);
 		it->second.reset();
-		conn->getLoop()->runInLoop(&imageData::connectDestroyed, conn);
+		conn->getLoop()->runInLoop(bind(&imageData::connectDestroyed, conn));
 	}
 }
 void server::handleNewConnection()
@@ -81,8 +81,9 @@ void server::removeConnectionInLoop(const imageDataPtr myConn)
 	loop_->assertInLoopThread();
 	cout << "Server::removeConnectionInLoop - connection[fd ]  = " << myConn->getFd() << endl;
 	size_t n = connections_.erase(myConn->getFd());
-	assert((void)n == 1);
+	(void)n;
+	assert( n == 1);
 	EventLoop *ioLoop = myConn->getLoop();
-	ioLoop->queueInLoop(&imageData::connectDestroyed, myConn);
+	ioLoop->queueInLoop(bind(&imageData::connectDestroyed, myConn));
 }
 

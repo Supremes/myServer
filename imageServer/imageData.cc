@@ -109,7 +109,7 @@ void imageData::connectDestroyed()
     if(connState_ = kConnected){
         connState_ = kDisconnected;
         channel_->disableAll();
-        cout << "disconnect connection fd = " << fd << endl;
+        cout << "disconnect connection fd = " << connfd_ << endl;
     }
     channel_->remove();
 }

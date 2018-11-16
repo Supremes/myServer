@@ -64,10 +64,11 @@ void Channel::handleEvents()
 
 void Channel::remove()
 {
-	loop_->removeFromPoller(this);
+	loop_->removeFromPoller(shared_from_this());
 }
 
 void Channel::disableAll()
 {
 	events_ = 0;
+	loop_->updatePoller(shared_from_this());
 }

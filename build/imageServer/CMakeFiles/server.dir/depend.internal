@@ -4,6 +4,11 @@
 imageServer/CMakeFiles/server.dir/Channel.cc.o
  /home/supreme/djk/imageServer/imageServer/Channel.cc
  /home/supreme/djk/imageServer/imageServer/Channel.h
+ /home/supreme/djk/imageServer/imageServer/Epoller.h
+ /home/supreme/djk/imageServer/imageServer/EventLoop.h
+ /home/supreme/djk/imageServer/imageServer/base/CurrentThread.h
+ /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
+ /home/supreme/djk/imageServer/imageServer/base/Thread.h
 imageServer/CMakeFiles/server.dir/Epoller.cc.o
  /home/supreme/djk/imageServer/imageServer/Channel.h
  /home/supreme/djk/imageServer/imageServer/Epoller.cc
@@ -201,6 +206,7 @@ imageServer/CMakeFiles/server.dir/main.cc.o
  /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
  /home/supreme/djk/imageServer/imageServer/base/Thread.h
  /home/supreme/djk/imageServer/imageServer/base/utility.h
+ /home/supreme/djk/imageServer/imageServer/imageData.h
  /home/supreme/djk/imageServer/imageServer/main.cc
  /home/supreme/djk/imageServer/imageServer/server.h
 imageServer/CMakeFiles/server.dir/server.cc.o

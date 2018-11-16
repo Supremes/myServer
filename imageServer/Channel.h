@@ -11,7 +11,7 @@ using namespace std;
 class EventLoop;
 class imageData;
 
-class Channel{
+class Channel: public enable_shared_from_this<Channel>{
 public:
 	Channel(EventLoop*, int);
 	//~Channel();

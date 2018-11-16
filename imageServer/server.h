@@ -5,12 +5,13 @@
 #include "base/utility.h"
 #include "base/MutexLock.h"
 #include "EventLoopThreadPool.h"
+#include "imageData.h"
 using namespace std;
 
 class server{
 public:
 	server(EventLoop *loop, int port, int threadnum);
-	~server(){}
+	~server();
 	void handleNewConnection();
 	void handleThisConnection()
 	{

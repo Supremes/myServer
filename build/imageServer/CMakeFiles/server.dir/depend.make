@@ -3,6 +3,11 @@
 
 imageServer/CMakeFiles/server.dir/Channel.cc.o: ../imageServer/Channel.cc
 imageServer/CMakeFiles/server.dir/Channel.cc.o: ../imageServer/Channel.h
+imageServer/CMakeFiles/server.dir/Channel.cc.o: ../imageServer/Epoller.h
+imageServer/CMakeFiles/server.dir/Channel.cc.o: ../imageServer/EventLoop.h
+imageServer/CMakeFiles/server.dir/Channel.cc.o: ../imageServer/base/CurrentThread.h
+imageServer/CMakeFiles/server.dir/Channel.cc.o: ../imageServer/base/MutexLock.h
+imageServer/CMakeFiles/server.dir/Channel.cc.o: ../imageServer/base/Thread.h
 
 imageServer/CMakeFiles/server.dir/Epoller.cc.o: ../imageServer/Channel.h
 imageServer/CMakeFiles/server.dir/Epoller.cc.o: ../imageServer/Epoller.cc
@@ -200,6 +205,7 @@ imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/CurrentThread.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/MutexLock.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/Thread.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/base/utility.h
+imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/imageData.h
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/main.cc
 imageServer/CMakeFiles/server.dir/main.cc.o: ../imageServer/server.h
 

@@ -11,6 +11,8 @@ Channel.h
 /home/supreme/djk/imageServer/imageServer/Channel.h
 iostream
 -
+EventLoop.h
+/home/supreme/djk/imageServer/imageServer/EventLoop.h
 
 /home/supreme/djk/imageServer/imageServer/Channel.h
 string
@@ -237,6 +239,8 @@ netinet/in.h
 -
 arpa/inet.h
 -
+assert.h
+-
 
 /home/supreme/djk/imageServer/imageServer/server.h
 Epoller.h
@@ -251,6 +255,8 @@ base/MutexLock.h
 /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
 EventLoopThreadPool.h
 /home/supreme/djk/imageServer/imageServer/EventLoopThreadPool.h
+imageData.h
+/home/supreme/djk/imageServer/imageServer/imageData.h
 
 /home/supreme/djk/imageServer/imageServer/timer.cc
 timer.h
