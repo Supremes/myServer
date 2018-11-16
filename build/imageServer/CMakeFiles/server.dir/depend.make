@@ -16,7 +16,6 @@ imageServer/CMakeFiles/server.dir/EventLoop.cc.o: ../imageServer/EventLoop.h
 imageServer/CMakeFiles/server.dir/EventLoop.cc.o: ../imageServer/base/CurrentThread.h
 imageServer/CMakeFiles/server.dir/EventLoop.cc.o: ../imageServer/base/MutexLock.h
 imageServer/CMakeFiles/server.dir/EventLoop.cc.o: ../imageServer/base/Thread.h
-imageServer/CMakeFiles/server.dir/EventLoop.cc.o: ../imageServer/base/utility.h
 
 imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../imageServer/Channel.h
 imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../imageServer/Epoller.h
@@ -27,7 +26,6 @@ imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../imageServer/base/Cond
 imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../imageServer/base/CurrentThread.h
 imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../imageServer/base/MutexLock.h
 imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../imageServer/base/Thread.h
-imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../imageServer/base/utility.h
 
 imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../imageServer/Channel.h
 imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../imageServer/Epoller.h
@@ -39,7 +37,6 @@ imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../imageServer/base/
 imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../imageServer/base/CurrentThread.h
 imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../imageServer/base/MutexLock.h
 imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../imageServer/base/Thread.h
-imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../imageServer/base/utility.h
 
 imageServer/CMakeFiles/server.dir/base/Condition.cc.o: ../imageServer/base/Condition.cc
 imageServer/CMakeFiles/server.dir/base/Condition.cc.o: ../imageServer/base/Condition.h
@@ -226,7 +223,6 @@ imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/EventLoop.h
 imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/base/CurrentThread.h
 imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/base/MutexLock.h
 imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/base/Thread.h
-imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/base/utility.h
 imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/imageData.h
 imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/timer.cc
 imageServer/CMakeFiles/server.dir/timer.cc.o: ../imageServer/timer.h

@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-// #include "EventLoop.h"
+#include "EventLoop.h"
 //#include "httpData.h"
 
 Channel::Channel(EventLoop *loop, int fd):
@@ -16,7 +16,7 @@ void Channel::handleRead()
 {
 	if(readCallback_)
 	{
-		cout << "handleRead..." << endl;
+		cout << "handleRead... fd = " << fd_ << endl;
 		readCallback_();
 	}
 }
@@ -60,4 +60,14 @@ void Channel::handleEvents()
 		handleWrite();
 	}
 	handleConn();
+}
+
+void Channel::remove()
+{
+	loop_->removeFromPoller(this);
+}
+
+void Channel::disableAll()
+{
+	events_ = 0;
 }

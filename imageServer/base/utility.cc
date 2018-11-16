@@ -191,6 +191,12 @@ void handle_for_sigpipe()
     if(sigaction(SIGPIPE, &sa, NULL))
         return;
 }
+void setSocketKeepAlive(int sockfd_, bool on)
+{
+    int optval = on ? 1 : 0;
+    setsockopt(sockfd_, SOL_SOCKET, SO_KEEPALIVE,
+                &optval, static_cast<socklen_t>(sizeof optval));
+}
 // unique_ptr<int> thread_func()
 // {
 // 	unique_ptr<int> a(new int(2));

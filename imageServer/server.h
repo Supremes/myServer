@@ -3,6 +3,7 @@
 #include "EventLoop.h"
 #include "Channel.h"
 #include "base/utility.h"
+#include "base/MutexLock.h"
 #include "EventLoopThreadPool.h"
 using namespace std;
 
@@ -14,18 +15,19 @@ public:
 	void handleThisConnection()
 	{
 		cout << "server::handleThisConnection..." << endl;
-		// string str = "connect success!\n";
-		// if(writen(listenfd_, str) <= 0)
-		// 	perror("write first connect");
 		loop_->updatePoller(acceptChannel_);
 	}
 	void start();
-	//int getListenFd_(){	return listenfd_; }
+	void removeConnectionInLoop(const imageDataPtr myConn);
+
 private:
+	typedef map<int, imageDataPtr> ConnectionMap;
 	EventLoop *loop_;
 	EventLoopThreadPool *pool_;
 	int port_;
 	int listenfd_;
 	spChannel acceptChannel_;
 	int threadnum_;
+	MutexLock mutex_;
+	ConnectionMap connections_;
 };

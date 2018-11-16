@@ -18,11 +18,16 @@ imageData::imageData(EventLoop *loop, int connfd):
         {
             channel_->setReadResponse(bind(&imageData::handleRead, this));
             //channel_->setWriteResponse(bind(&imageData::handleWrite, this));
-            channel_->setErrorResponse(bind(&imageData::handleError, this));
-
+            //channel_->setErrorResponse(bind(&imageData::handleError, this));
+            setSocketKeepAlive(connfd_, true);
             // channel_->setEvents(EPOLLIN | EPOLLOUT);
             // loop_->addToPoller(channel_);   
         }
+imageData::~imageData(){  
+    cout << "connection:dtor at "  << this << "fd = " << connfd_ << endl;;
+    //close(connfd_);
+}
+
 void imageData::stitch(){
     cout << "stitching.." << endl;
     vector<Mat> imgs;
@@ -44,7 +49,7 @@ void imageData::stitch(){
 
 void imageData::handleRead()
 {
-    cout << "imageData::handleRead()"<<endl;
+    cout << "imageData::handleRead() connfd_ = "<< connfd_ << endl;
     // int numOfRead = readn(connfd_, inBuffer_);
     // if(numOfRead < 0){
     //     handleError();
@@ -53,11 +58,11 @@ void imageData::handleRead()
     // }
     char in[2048];
     int numOfRead = read(connfd_, in, 2048);
-    if(numOfRead < 0){
-        handleError();
-        error_ = true;
-        return ;
-    }
+    // if(numOfRead < 0){
+    //     handleError();
+    //     error_ = true;
+    //     return ;
+    // }
     inBuffer_ = in;
     splitString(inBuffer_, " ", names_);
     cout << inBuffer_ << endl;
@@ -95,5 +100,16 @@ void imageData::handleClose()
 void imageData::handleNewEvent()
 {
     channel_->setEvents(EPOLLIN | EPOLLOUT);
+    setState(kConnected);
     loop_->addToPoller(channel_);
+}
+
+void imageData::connectDestroyed()
+{
+    if(connState_ = kConnected){
+        connState_ = kDisconnected;
+        channel_->disableAll();
+        cout << "disconnect connection fd = " << fd << endl;
+    }
+    channel_->remove();
 }

@@ -27,3 +27,4 @@ void splitString(const string &s, const string &p, vector<string> &result);
 pid_t gettid();
 void setSocketNodelay(int fd);
 void handle_for_sigpipe();
+void setSocketKeepAlive(int sockfd_, bool on);

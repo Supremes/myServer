@@ -9,16 +9,24 @@ using namespace std;
 class imageData{
 public:
     imageData(EventLoop *loop, int connfd);
-    ~imageData(){  cout << "imageData destructing!\n"; close(connfd_); }
-
+    ~imageData();
+    
+    void handleNewEvent();
+    //关系到timerNode处理关闭事件,应设为public
+    void handleClose();
+    spChannel getChannel()  { return channel_; }
+    int getFd(){ return connfd_; }
+    EventLoop* getLoop() { return loop_; }
+    void connectDestroyed();
+private:
+	enum StateE { kDisconnected, kConnecting, kConnected, kDisconnecting };
+    void setState(StateE state) { connState_ = state; }
     void stitch();
-
+    
     void handleWrite();
     void handleRead();
     void handleError();
-    void handleClose();
-    
-    void handleNewEvent();
+	
 private:
     vector<string> names_;
 
@@ -34,5 +42,7 @@ private:
     int connfd_;
     EventLoop *loop_;
     spChannel channel_;
+    StateE connState_;
 };
 
+typedef shared_ptr<imageData> imageDataPtr;

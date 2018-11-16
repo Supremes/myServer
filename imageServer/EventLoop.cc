@@ -103,13 +103,7 @@ void EventLoop::doPendingFunctors()
 		functors[i]();
 
 	callingPendingFunctors_ = false;
-	// cout << "pendingFunctors_'s size : " << pendingFunctors_.size() << endl;
-	// for(size_t i = 0; i < pendingFunctors_.size(); i++)
-	// 	pendingFunctors_[i]();
-	// {
-	// 	MutexLock lock(mutex_);
-	// 	pendingFunctors_.clear();
-	// }
+	
 }
 //后续优化编写
 void EventLoop::loop()
@@ -129,8 +123,10 @@ void EventLoop::loop()
 		// 	cout << ret->getFd() << "\t";
 		// cout << endl;
 		//cout << "2.handleEvents...." << endl;
-		for(auto &ret: channelList)
+		for(auto &ret: channelList){
+			cout << "handling fd:" << ret->getFd() << endl;
 			ret->handleEvents();
+		}
 		//cout << "3.doPendingFunctors..." << endl;
 		doPendingFunctors();
 		// cout << "4.handleExpired..." << endl;

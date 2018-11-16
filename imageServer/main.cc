@@ -9,10 +9,9 @@ int main(int argc, char const *argv[])
     int port = 6666;
     if(argc == 2)
         port = atoi(argv[1]);
-    EventLoop *mainLoop = new EventLoop();
-    server imageServer(mainLoop, port, 4);
+    EventLoop mainLoop;
+    server imageServer(&mainLoop, port, 4);
     imageServer.start();
-    //int listenFd = imageServer.getListenFd_();
-    mainLoop->loop();
+    mainLoop.loop();
     return 0;
 }

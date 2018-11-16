@@ -5,6 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <assert.h>
 using namespace std;
 
 server::server(EventLoop *loop, int port, int threadnum):
@@ -30,6 +31,16 @@ void server::start()
 	
 	loop_->addToPoller(acceptChannel_, 0);
 }
+
+server::~server()
+{
+	loop_->assertInLoopThread();
+	for(ConnectionMap::iterator it = connections_.begin(); it != connections_.end(); it++){
+		imageDataPtr conn(it->second);
+		it->second.reset();
+		conn->getLoop()->runInLoop(&imageData::connectDestroyed, conn);
+	}
+}
 void server::handleNewConnection()
 {
 	cout << "server::handleNewConnection()" << endl;
@@ -39,6 +50,7 @@ void server::handleNewConnection()
 	cout << "listenfd_ = " << listenfd_ << endl;
 	int accept_fd = 0;
 	while((accept_fd = accept(listenfd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0){
+		//MutexLock lock(mutex_);
 		//EventLoop *curLoop = pool_->getNextLoop();
 		cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
 		cout << "accept_fd : " << accept_fd << endl;
@@ -48,19 +60,29 @@ void server::handleNewConnection()
         //     close(accept_fd);
         //     continue;
         // }
-
+		
 		if(setSocketNonBlocking(accept_fd) < 0){
 			perror("set non block failed!");
 		}
 		
 		setSocketNodelay(accept_fd);
-		//shared_ptr<imageData> accept_http(new imageData(loop_, accept_fd));
-		imageData accept_http(loop_, accept_fd);
-		//accept_http->getChannel()->setHolder(accept_http);
-		loop_->runInLoop(bind(&imageData::handleNewEvent, accept_http));	//加入到pendingFuntors
+		shared_ptr<imageData> accept_http(new imageData(loop_, accept_fd));
+		connections_[accept_fd] = accept_http;
+		accept_http->getChannel()->setHolder(accept_http);
+		loop_->queueInLoop(bind(&imageData::handleNewEvent, accept_http));	//加入到pendingFuntors
 	}
 
 	acceptChannel_->setEvents(EPOLLIN | EPOLLET);
 
+}
+
+void server::removeConnectionInLoop(const imageDataPtr myConn)
+{
+	loop_->assertInLoopThread();
+	cout << "Server::removeConnectionInLoop - connection[fd ]  = " << myConn->getFd() << endl;
+	size_t n = connections_.erase(myConn->getFd());
+	assert((void)n == 1);
+	EventLoop *ioLoop = myConn->getLoop();
+	ioLoop->queueInLoop(&imageData::connectDestroyed, myConn);
 }
 

@@ -17,7 +17,6 @@ imageServer/CMakeFiles/server.dir/EventLoop.cc.o
  /home/supreme/djk/imageServer/imageServer/base/CurrentThread.h
  /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
  /home/supreme/djk/imageServer/imageServer/base/Thread.h
- /home/supreme/djk/imageServer/imageServer/base/utility.h
 imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o
  /home/supreme/djk/imageServer/imageServer/Channel.h
  /home/supreme/djk/imageServer/imageServer/Epoller.h
@@ -28,7 +27,6 @@ imageServer/CMakeFiles/server.dir/EventLoopThread.cc.o
  /home/supreme/djk/imageServer/imageServer/base/CurrentThread.h
  /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
  /home/supreme/djk/imageServer/imageServer/base/Thread.h
- /home/supreme/djk/imageServer/imageServer/base/utility.h
 imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o
  /home/supreme/djk/imageServer/imageServer/Channel.h
  /home/supreme/djk/imageServer/imageServer/Epoller.h
@@ -40,7 +38,6 @@ imageServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o
  /home/supreme/djk/imageServer/imageServer/base/CurrentThread.h
  /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
  /home/supreme/djk/imageServer/imageServer/base/Thread.h
- /home/supreme/djk/imageServer/imageServer/base/utility.h
 imageServer/CMakeFiles/server.dir/base/Condition.cc.o
  /home/supreme/djk/imageServer/imageServer/base/Condition.cc
  /home/supreme/djk/imageServer/imageServer/base/Condition.h
@@ -227,7 +224,6 @@ imageServer/CMakeFiles/server.dir/timer.cc.o
  /home/supreme/djk/imageServer/imageServer/base/CurrentThread.h
  /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
  /home/supreme/djk/imageServer/imageServer/base/Thread.h
- /home/supreme/djk/imageServer/imageServer/base/utility.h
  /home/supreme/djk/imageServer/imageServer/imageData.h
  /home/supreme/djk/imageServer/imageServer/timer.cc
  /home/supreme/djk/imageServer/imageServer/timer.h

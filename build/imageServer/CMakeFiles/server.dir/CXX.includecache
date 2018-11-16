@@ -127,8 +127,6 @@ MutexLock.h
 /home/supreme/djk/imageServer/imageServer/base/CurrentThread.h
 stdint.h
 -
-utility.h
-/home/supreme/djk/imageServer/imageServer/base/utility.h
 
 /home/supreme/djk/imageServer/imageServer/base/MutexLock.h
 pthread.h
@@ -143,6 +141,8 @@ iostream
 -
 CurrentThread.h
 /home/supreme/djk/imageServer/imageServer/base/CurrentThread.h
+utility.h
+/home/supreme/djk/imageServer/imageServer/base/utility.h
 
 /home/supreme/djk/imageServer/imageServer/base/Thread.h
 pthread.h
@@ -247,6 +247,8 @@ Channel.h
 /home/supreme/djk/imageServer/imageServer/Channel.h
 base/utility.h
 /home/supreme/djk/imageServer/imageServer/base/utility.h
+base/MutexLock.h
+/home/supreme/djk/imageServer/imageServer/base/MutexLock.h
 EventLoopThreadPool.h
 /home/supreme/djk/imageServer/imageServer/EventLoopThreadPool.h
 

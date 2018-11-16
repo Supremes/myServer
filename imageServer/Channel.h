@@ -46,6 +46,7 @@ public:
 	shared_ptr<imageData> getHolder()
 	{
 		shared_ptr<imageData> ret(holder_.lock());
+		//shared_ptr<imageData> ret(holder_);
 		return ret;
 	}
 
@@ -77,11 +78,13 @@ public:
 		lastEvents_ = events_;
 		return ret;
 	}
+	void disableAll();
+	void remove();
 private:
 	EventLoop *loop_;
 	//方便找到负责的IO事件（imageData封装了IO的读写监听事件）
 	weak_ptr<imageData> holder_;
-
+	//shared_ptr<imageData> holder_;
 	callBack_ readCallback_;
 	callBack_ writeCallback_;
 	callBack_ connCallback_;
