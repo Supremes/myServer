@@ -38,49 +38,79 @@ void imageData::stitch(){
     Stitcher::Status status = stitcher.stitch(imgs, pano);
     
     if(status != Stitcher::OK)
-        outBuffer_ = "can't stitch images ,error code = ERR_NEED_MORE_IMGS";
+        outBuffer_ = "can't stitch images!\n";
     else{
-        imwrite("result.jpg", pano);
-        outBuffer_ = "stitch success!";
+        imwrite("pano.jpg", pano);
+        outBuffer_ = "stitch success!\n";
     }
-    cout << outBuffer_.c_str() << endl;
-    //handleWrite();
+}
+//灰度化处理
+void imageData::imageProcess(){
+    cout << "imageProcess..." << endl;
+    Mat img = imread(name_);
+    Mat gray, flipImg;
+    cvtColor(img, gray, COLOR_RGB2GRAY);
+    imwrite("gray.jpg", gray);
+    outBuffer_ = "grayScale success\t";
+    transpose(img, flipImg);
+    flip(flipImg, flipImg, 2);
+    imwrite("flip.jpg", flipImg);
+    outBuffer_ += "flip success\t";
 }
 
+// void imageData::handleRead()
+// {
+//     cout << "imageData::handleRead() connfd_ = "<< connfd_ << endl;
+//     // int numOfRead = readn(connfd_, inBuffer_);
+//     // if(numOfRead < 0){
+//     //     handleError();
+//     //     error_ = true;
+//     //     return ;
+//     // }
+//     char in[2048];
+//     int numOfRead = read(connfd_, in, 2048);
+//     // if(numOfRead < 0){
+//     //     handleError();
+//     //     error_ = true;
+//     //     return ;
+//     // }
+//     write(connfd_, in, strlen(in));
+
+//     //splitString(inBuffer_, " ", names_);
+//     //cout << inBuffer_ << endl;
+//     // char send[1000] = "received";
+//     // writen(connfd_, send, strlen(send));
+//     //stitch();
+// }
 void imageData::handleRead()
 {
-    cout << "imageData::handleRead() connfd_ = "<< connfd_ << endl;
-    // int numOfRead = readn(connfd_, inBuffer_);
-    // if(numOfRead < 0){
-    //     handleError();
-    //     error_ = true;
-    //     return ;
-    // }
-    char in[2048];
-    int numOfRead = read(connfd_, in, 2048);
-    // if(numOfRead < 0){
-    //     handleError();
-    //     error_ = true;
-    //     return ;
-    // }
-    inBuffer_ = in;
-    splitString(inBuffer_, " ", names_);
-    cout << inBuffer_ << endl;
-    char send[1000] = "received\n";
-    write(connfd_, send, strlen(send));
-    //stitch();
+    //cout << "imageData::handleRead() connfd_ = "<< connfd_ << endl;
+    int numOfRead = readn(connfd_, inBuffer_);
+    if(numOfRead < 0){
+        handleError();
+        error_ = true;
+        return ;
+    }else if(numOfRead > 0){
+        //splitString(inBuffer_, " ", names_);
+        name_ = inBuffer_;
+        imageProcess();
+        //stitch();
+        handleWrite();
+    }
 }
-
 void imageData::handleWrite()
 {
     //加入连接状态检测 connectionState
     cout << "imageData writing.." << endl;
-    //outBuffer_ = "imageData writing..";
     if(!error_){
         if(writen(connfd_, outBuffer_) < 0){
             perror("writen");
             error_ = true;
         }
+        // else{
+        //     cout << outBuffer_ << endl;
+        //     cout << "write success!\n";
+        // }
     }
 }
 

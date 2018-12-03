@@ -35,28 +35,33 @@ int main(int argc, char const *argv[])
     inet_pton(AF_INET, ip, &serverAddr.sin_addr);
 
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    assert(sockfd >= 0);
-    if(connect(sockfd, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0){
-        perror("can't connect server");
-    }
-    // if(setSocketNonBlocking1(sockfd))
-    //     perror("sockfd set nonblock failed!");
-    char send[1000] = "images/s1.jpg images/s2.jpg", recv[1000];
-    // while(fgets(send, 1000, stdin) != NULL){
-    write(sockfd, send, strlen(send));
-    while(true){
+    assert(sockfd > 0);
+    if(connect(sockfd, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == 0){
+        char send[1000] = "images/s1.jpg", recv[1000] = "\0";
+        setSocketNonBlocking1(sockfd);
+        cout << "sockfd = " << sockfd << endl;
+        write(sockfd, send, strlen(send));
         int numOfRead;
-        if((numOfRead = read(sockfd, recv, 1000)) > 0)
-        {
-            cout << "read something:" << endl;
-            fputs(recv, stdout);
-        }
-        else if(numOfRead == 0)
-            continue;
-        else{
-            perror("server terminated");
-            break;
-        }
+        sleep(1);
+        numOfRead = read(sockfd, recv, 1000);
+        cout << "numOfRead = " << numOfRead << endl;
+        cout << recv << endl;
+        //为什么服务器端依然保持该连接???,断开失败
+        close(sockfd);
     }
+
+    // sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    // assert(sockfd > 0);
+    // if(connect(sockfd, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == 0){
+    //     char send[1000] = "images/t1.jpeg images/t2.jpeg", recv[1000] = "\0";
+    //     setSocketNonBlocking1(sockfd);
+    //     write(sockfd, send, strlen(send));
+    //     int numOfRead;
+    //     sleep(1);
+    //     numOfRead = read(sockfd, recv, 1000);
+    //     cout << "numOfRead = " << numOfRead << endl;
+    //     cout << recv << endl;
+    //     close(sockfd);
+    // }
     return 0;
 }

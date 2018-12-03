@@ -3,7 +3,7 @@
 #include "Channel.h"
 #include "EventLoop.h"
 #include <unistd.h>
-
+#include "base/Buffer.h"
 using namespace std;
 
 class imageData{
@@ -22,14 +22,14 @@ private:
 	enum StateE { kDisconnected, kConnecting, kConnected, kDisconnecting };
     void setState(StateE state) { connState_ = state; }
     void stitch();
-    
+    void imageProcess();
     void handleWrite();
     void handleRead();
     void handleError();
 	
 private:
     vector<string> names_;
-
+    string name_;
     string feature_;
     string warp_;
     string seam_;
@@ -43,6 +43,9 @@ private:
     EventLoop *loop_;
     spChannel channel_;
     StateE connState_;
+    //待编写
+    // Buffer inputBuffer_;
+    // Buffer outputBuffer_;
 };
 
 typedef shared_ptr<imageData> imageDataPtr;

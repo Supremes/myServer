@@ -108,6 +108,8 @@ memory
 vector
 -
 
+/home/supreme/djk/imageServer/imageServer/base/Buffer.h
+
 /home/supreme/djk/imageServer/imageServer/base/Condition.cc
 Condition.h
 /home/supreme/djk/imageServer/imageServer/base/Condition.h
@@ -213,6 +215,8 @@ EventLoop.h
 /home/supreme/djk/imageServer/imageServer/EventLoop.h
 unistd.h
 -
+base/Buffer.h
+/home/supreme/djk/imageServer/imageServer/base/Buffer.h
 
 /home/supreme/djk/imageServer/imageServer/main.cc
 EventLoop.h

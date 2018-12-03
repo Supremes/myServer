@@ -22,7 +22,7 @@ server::server(EventLoop *loop, int port, int threadnum):
 }
 void server::start()
 {
-	//pool_->start();
+	pool_->start();
 	acceptChannel_->setEvents(EPOLLIN | EPOLLET);
 	acceptChannel_->setReadResponse(bind(&server::handleNewConnection, this));
 	acceptChannel_->setConnResponse(bind(&server::handleThisConnection, this));
@@ -47,13 +47,11 @@ void server::handleNewConnection()
 
 	struct sockaddr_in client_addr = { 0 };
 	socklen_t client_addr_len = sizeof client_addr;
-	cout << "listenfd_ = " << listenfd_ << endl;
 	int accept_fd = 0;
 	while((accept_fd = accept(listenfd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0){
-		//MutexLock lock(mutex_);
-		//EventLoop *curLoop = pool_->getNextLoop();
+		EventLoop *curLoop = pool_->getNextLoop();
 		cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
-		cout << "accept_fd : " << accept_fd << endl;
+		//cout << "accept_fd : " << accept_fd << endl;
 		// 限制服务器的最大并发连接数
         // if (accept_fd >= MAXFDS)
         // {
@@ -66,10 +64,10 @@ void server::handleNewConnection()
 		}
 		
 		setSocketNodelay(accept_fd);
-		shared_ptr<imageData> accept_http(new imageData(loop_, accept_fd));
+		shared_ptr<imageData> accept_http(new imageData(curLoop, accept_fd));
 		connections_[accept_fd] = accept_http;
 		accept_http->getChannel()->setHolder(accept_http);
-		loop_->queueInLoop(bind(&imageData::handleNewEvent, accept_http));	//加入到pendingFuntors
+		curLoop->queueInLoop(bind(&imageData::handleNewEvent, accept_http));	//加入到pendingFuntors
 	}
 
 	acceptChannel_->setEvents(EPOLLIN | EPOLLET);

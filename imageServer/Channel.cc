@@ -16,7 +16,7 @@ void Channel::handleRead()
 {
 	if(readCallback_)
 	{
-		cout << "handleRead... fd = " << fd_ << endl;
+		//cout << "handleRead... fd = " << fd_ << endl;
 		readCallback_();
 	}
 }

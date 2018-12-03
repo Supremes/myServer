@@ -34,9 +34,6 @@ vector<spChannel> Epoller::poll()
 			for(int i = 0; i < event_count; i++){
 				int fd = eventList[i].data.fd;
 				spChannel ch_cur = channelList[fd];
-
-			//	cout << "epoll fd = " << fd << endl;
-				
 				if(ch_cur){
 					//if(eventList[i].events & EPOLLIN)
 						//cout << "可读事件" << endl;
@@ -72,7 +69,6 @@ void Epoller::epoll_add(spChannel channel, int timeout)
 	//为什么需要该操作
 	//channel->EqualAndUpdateLastEvents();
 	channelList[fd] = channel;
-	cout << "count = "<< channelList[fd].use_count() << endl;
 	if(epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &events_) < 0)
 	{
 		perror("epoll_ctl error");
