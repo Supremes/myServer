@@ -194,6 +194,7 @@ bool httpData::doHttpData()
             handleError();
 			return false;  
         }
+		//文件映射
         void *mmapRet = mmap(NULL, fileInfo.st_size, PROT_READ, MAP_PRIVATE, fileFd, 0);
 		close(fileFd);
         if(mmapRet == (void *)-1)
@@ -205,8 +206,9 @@ bool httpData::doHttpData()
 			return false;
 		}
         char *src_addr = static_cast<char*>(mmapRet);
-        outBuffer_ += string(src_addr, src_addr + sbuf.st_size);;
-        munmap(mmapRet, sbuf.st_size);
+		//读取映射段
+        outBuffer_ += string(src_addr, src_addr + fileInfo.st_size);;
+        munmap(mmapRet, fileInfo.st_size);
         return true;
 
 	}
