@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/supreme/djk/imageServer
+CMAKE_SOURCE_DIR = /home/supreme/djk/myServer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/supreme/djk/imageServer/build
+CMAKE_BINARY_DIR = /home/supreme/djk/myServer/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/supreme/djk/imageServer/build/CMakeFiles /home/supreme/djk/imageServer/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/supreme/djk/myServer/build/CMakeFiles /home/supreme/djk/myServer/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/supreme/djk/imageServer/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/supreme/djk/myServer/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -120,7 +120,7 @@ server: cmake_check_build_system
 
 # fast build rule for target.
 server/fast:
-	$(MAKE) -f imageServer/CMakeFiles/server.dir/build.make imageServer/CMakeFiles/server.dir/build
+	$(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/build
 .PHONY : server/fast
 
 #=============================================================================
@@ -133,7 +133,7 @@ client: cmake_check_build_system
 
 # fast build rule for target.
 client/fast:
-	$(MAKE) -f imageServer/client/CMakeFiles/client.dir/build.make imageServer/client/CMakeFiles/client.dir/build
+	$(MAKE) -f myServer/client/CMakeFiles/client.dir/build.make myServer/client/CMakeFiles/client.dir/build
 .PHONY : client/fast
 
 # Help Target

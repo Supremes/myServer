@@ -7,4 +7,4 @@ set(C_FLAGS
     -g
 )
 
-add_subdirectory(imageServer)
+add_subdirectory(myServer)
