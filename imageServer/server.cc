@@ -1,6 +1,6 @@
 #include "server.h"
 #include "base/utility.h"
-#include "imageData.h"
+#include "httpData.h"
 #include <iostream>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -51,7 +51,6 @@ void server::handleNewConnection()
 	while((accept_fd = accept(listenfd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0){
 		EventLoop *curLoop = pool_->getNextLoop();
 		cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
-		//cout << "accept_fd : " << accept_fd << endl;
 		// 限制服务器的最大并发连接数
         // if (accept_fd >= MAXFDS)
         // {
@@ -64,13 +63,13 @@ void server::handleNewConnection()
 		}
 		
 		setSocketNodelay(accept_fd);
-		shared_ptr<imageData> accept_http(new imageData(curLoop, accept_fd));
+		shared_ptr<httpData> accept_http(new httpData(curLoop, accept_fd));
 		connections_[accept_fd] = accept_http;
 		accept_http->getChannel()->setHolder(accept_http);
-		curLoop->queueInLoop(bind(&imageData::handleNewEvent, accept_http));	//加入到pendingFuntors
+		curLoop->queueInLoop(bind(&httpData::handleNewConn, accept_http));	//加入到pendingFuntors
 	}
 
-	acceptChannel_->setEvents(EPOLLIN | EPOLLET);
+	//acceptChannel_->setEvents(EPOLLIN | EPOLLET);
 
 }
 

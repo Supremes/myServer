@@ -82,7 +82,7 @@ public:
 	//根据httpData中的请求数据进行响应
 	bool doHttpData();
 
-	void newEvent();
+	void handleNewEvent();
 
 	void linkTimer(shared_ptr<timerNode> mtimer)
     {
@@ -121,3 +121,5 @@ private:
 	void handleRead();
 	void handleWrite();
 };
+
+typedef shared_ptr<httpData> httpDataPtr;

@@ -20,7 +20,7 @@ httpData::httpData(EventLoop* loop, int connfd):
 	// spChannel->setConnResponse(bind(&httpData::handleConn, this));
 	spChannel->setReadResponse(bind(&httpData::handleRead, this));
 	spChannel->setWriteResponse(bind(&httpData::handleWrite, this));
-	spChannel->setConnResponse(bind(&httpData::handleConn, this));
+	//spChannel->setConnResponse(bind(&httpData::handleConn, this));
 
 }
 
@@ -56,7 +56,7 @@ void httpData::handleRead()
 		if(numOfRead < 0){
 			error_ = true;
 			//待编写
-			handleError();
+			doError();
 		}else if(zero){
 			//有请求但是读不到数据，可能是来自网络的数据未到达或者对方端口已关闭或Request Aborted
 			//统一按照对端已经关闭处理
@@ -98,14 +98,19 @@ void httpData::handleWrite()
 	}
 
 }
-void httpData::handleConn()
+void httpData::handleNewConn()
 {
-	uint32_t &events = spChannel->getEvents();
+	spChannel->setEvents(EPOLLIN | EPOLLET);
+	loop_->addToPoller(spChannel, 0);
+	connectionState_ = HTTP_CONNECTED;
 }
 
-void httpData::handleError()
+void httpData::doError(string error = "default")
 {
-
+	if(error == "default")
+		outBuffer_ += "请求错误...\n"
+	else if(errorNumber == "404")
+		outBuffer_ += "请求资源不存在...\n";
 }
 //解析请求行
 bool httpData::parseLine()
@@ -180,7 +185,7 @@ bool httpData::doHttpData()
         string fileName = line_.url;
         struct stat fileInfo;
         if(stat(fileName.c_str(), fileInfo) < 0){
-            handleError();
+            doError();
             return false;
         }
 
@@ -190,8 +195,8 @@ bool httpData::doHttpData()
         int fileFd = open(fileName, O_WRONLY);
         if(fileFd < 0){
 			outBuffer_.clear();
-			//handleError(fd_, 404, "Not Found!");
-            handleError();
+			//doError(fd_, 404, "Not Found!");
+            doError("404");
 			return false;  
         }
 		//文件映射
@@ -201,8 +206,8 @@ bool httpData::doHttpData()
 		{
 			munmap(mmapRet, fileInfo.st_size);
 			outBuffer_.clear();
-			//handleError(fd_, 404, "Not Found!");
-            handleError();
+			//doError(fd_, 404, "Not Found!");
+            doError("404");
 			return false;
 		}
         char *src_addr = static_cast<char*>(mmapRet);
@@ -219,8 +224,8 @@ bool httpData::doHttpData()
 	return false;
 }
 
-void httpData::newEvent()
-{
-	spChannel->setEvents(EPOLLIN | EPOLLET);
-	loop_->addToPoller(spChannel, 0);
-}
+// void httpData::newEvent()
+// {
+// 	spChannel->setEvents(EPOLLIN | EPOLLET);
+// 	loop_->addToPoller(spChannel, 0);
+// }
