@@ -115,7 +115,7 @@ void EventLoop::loop()
 	vector<shared_ptr<Channel> > channelList;
 
 	while(!quit_){
-		cout << "loop fd = " << wakeupfd_ << endl;
+		//cout << "loop fd = " << wakeupfd_ << endl;
 		channelList.clear();
 		//cout << "1. poll...." << endl;
 		channelList = epoller_->poll();

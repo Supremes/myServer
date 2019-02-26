@@ -20,15 +20,15 @@ httpData::httpData(EventLoop* loop, int connfd):
 
 }
 
-string MimeType::getMime(const string& suffix)
-{
-	//需要设置线程变量初始化的原因是什么？
-	//pthread_once(&once_control, MimeType::init);
-	if(mime.find(suffix) == mime.end())
-		return mime["default"];
-	else
-		return mime[suffix];
-}
+// string MimeType::getMime(const string& suffix)
+// {
+// 	//需要设置线程变量初始化的原因是什么？
+// 	//pthread_once(&once_control, MimeType::init);
+// 	if(mime.find(suffix) == mime.end())
+// 		return mime["default"];
+// 	else
+// 		return mime[suffix];
+// }
 void httpData::seperateTimer()
 {
 	shared_ptr<timerNode> this_timer(timer_.lock());
@@ -46,6 +46,7 @@ void httpData::handleClose()
 void httpData::handleRead()
 {
 	//uint32_t &events = spChannel->getEvents();
+	//cout << "httpData::handleRead()\n";
 	do{
 		bool zero = false;
 		int numOfRead = readn(connfd_, inBuffer_, zero);
@@ -61,21 +62,24 @@ void httpData::handleRead()
 			if(numOfRead == 0)
 				break; 
 		}
+		int index = inBuffer_.find_first_of("\r", 0);
+		vector<string> parseString;
+		parseString.push_back(inBuffer_.substr(0, index));
+		parseString.push_back(inBuffer_.substr(index + 2, inBuffer_.size() - index - 2));
 		//解析http字段的条件判断
 		if(state_ == PARSE_LINE){
-			if(parseLine())
+			if(parseLine(parseString[0]))
 				state_ = PARSE_HEAD;
 		}
 		if(state_ == PARSE_HEAD){
-			if(parseHeader())
+			if(parseHeader(parseString[1]))
 				state_ = PARSE_BODY;
 		}
 		if(state_ == PARSE_BODY){
-			parseRequest();
-		}
-		//根据httpData中的请求数据进行响应
-		if(!doHttpData()){
-			doError();
+			//根据httpData中的请求数据进行响应
+			if(!doHttpData()){
+				doError();
+			}
 		}
 
 	}while(false);
@@ -98,7 +102,9 @@ void httpData::handleWrite()
 }
 void httpData::handleNewConn()
 {
-	spChannel->setEvents(EPOLLIN);
+	//int events = EPOLLIN | EPOLLOUT;
+	spChannel->setEvents(EPOLLIN | EPOLLOUT);
+	//cout << "events = " << events << endl;
 	loop_->addToPoller(spChannel, 0);
 	connectionState_ = HTTP_CONNECTED;
 }
@@ -111,10 +117,10 @@ void httpData::doError(string error)
 		outBuffer_ += "请求资源不存在...\n";
 }
 //解析请求行
-bool httpData::parseLine()
+bool httpData::parseLine(string &data)
 {
 	vector<string> res;
-	splitString(inBuffer_, " ", res);
+	splitString(data, " ", res);
 	if(res.size() != 3)
 		return false;
 	line_.method = res[0];
@@ -127,25 +133,31 @@ bool httpData::parseLine()
 	return true;
 }
 //解析请求头
-bool httpData::parseHeader()
+bool httpData::parseHeader(string &data)
 {
 	vector<string> headers;
-	splitString(inBuffer_, "\r\n", headers);
+	splitString(data, "\r\n", headers);
 	
-	if(headers.size() != 2)
+	if(headers.size() == 0)
 		return false;
 
 	for(int i = 0; i < headers.size(); i++){
+		cout << "header[i] = " << headers[i] << endl;
+		if(headers[i].size() == 0)	
+			continue;
 		vector<string> res;
 		splitString(headers[i], ": ", res);
 		if(res[0] == "Connection"){
 			head_.Connection = res[1];
 		}else if(res[0] == "HOST"){
 			head_.Host = res[1];
-		}else if(res[0] == "Accept"){
-            head_.Accept = res[1];
-        }else if(res[0] == "Content-Type")
+		}else if(res[0] == "Date"){
+            head_.Date = res[1];
+        }else if(res[0] == "Content-Type"){
             head_.contentType = res[1];
+		}else if(res[0] == "User-Agent")
+			head_.Agent = res[1];
+		
 	}
 
 	int pos = inBuffer_.find("\n");
@@ -153,35 +165,28 @@ bool httpData::parseHeader()
 
 	return true;
 }
-//解析请求报文体
-void httpData::parseRequest()
-{
-	if(inBuffer_.size())
-		body_.text += inBuffer_;
-}
+
 //根据httpData中的请求数据进行响应
 bool httpData::doHttpData()
 {
     //解析请求行
 	if(line_.method == "GET" || line_.method == "HEAD"){
-		// outBuffer_ += "This method comes with 'GET' and 'HEAD'";
-
-        // string fileName = line_.url;
-        // if(open(fileName, O_WRONLY) == -1){
-        //     outBuffer_ += "URL failed\n";
-        //     return false;
-        // }else
-        //     outBuffer_ += "file open success!\r\n";
-        // outBuffer_ += line_.version; 
         
         //解析请求头
-        outBuffer_ += "Connection : " + head_.Connection + "\r\n";
-        outBuffer_ += "HOST" + head_.Host + "\r\n";
-        outBuffer_ += "Accept" + head_.Accept + "\r\n";
-        outBuffer_ += "Content-Type" + head_.contentType + "\r\n";
+		if(head_.Connection.size())
+        	outBuffer_ += "Connection : " + head_.Connection + "\r\n";
+		if(head_.Host.size())
+        	outBuffer_ += "HOST" + head_.Host + "\r\n";
+		if(head_.Agent.size())
+        	outBuffer_ += "User-Agent" + head_.Agent + "\r\n";
+		if(head_.contentType.size())
+        	outBuffer_ += "Content-Type: " + head_.contentType + "\r\n";
+		if(head_.Date.size())
+			outBuffer_ += "Date: " + head_.Date + "\r\n";
         
         string fileName = line_.url;
         struct stat fileInfo;
+		cout << "fileName = " << fileName << endl;
         if(stat(fileName.c_str(), &fileInfo) < 0){
             doError();
             return false;
@@ -190,7 +195,7 @@ bool httpData::doHttpData()
         if(line_.method == "HEAD")
             return true;
         //解析请求体
-        int fileFd = open(fileName.c_str(), O_WRONLY);
+        int fileFd = open(fileName.c_str(), O_RDONLY);
         if(fileFd < 0){
 			outBuffer_.clear();
 			//doError(fd_, 404, "Not Found!");
@@ -210,7 +215,7 @@ bool httpData::doHttpData()
 		}
         char *src_addr = static_cast<char*>(mmapRet);
 		//读取映射段
-        outBuffer_ += string(src_addr, src_addr + fileInfo.st_size);
+        outBuffer_ += string(src_addr, src_addr + fileInfo.st_size) + "\n";
         munmap(mmapRet, fileInfo.st_size);
         return true;
 
@@ -219,8 +224,8 @@ bool httpData::doHttpData()
 		outBuffer_ += "This method comes with 'POST'";
 		return true;
 	}
-
-	return false;
+	else
+		return false;
 }
 
 // void httpData::newEvent()

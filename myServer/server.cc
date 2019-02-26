@@ -36,9 +36,9 @@ server::~server()
 {
 	loop_->assertInLoopThread();
 	for(ConnectionMap::iterator it = connections_.begin(); it != connections_.end(); it++){
-		imageDataPtr conn(it->second);
+		spHttpData conn(it->second);
 		it->second.reset();
-		conn->getLoop()->runInLoop(bind(&imageData::connectDestroyed, conn));
+		conn->getLoop()->runInLoop(bind(&httpData::handleClose, conn));
 	}
 }
 void server::handleNewConnection()
@@ -63,7 +63,7 @@ void server::handleNewConnection()
 		}
 		
 		setSocketNodelay(accept_fd);
-		shared_ptr<httpData> accept_http(new httpData(curLoop, accept_fd));
+		spHttpData accept_http(new httpData(curLoop, accept_fd));
 		connections_[accept_fd] = accept_http;
 		accept_http->getChannel()->setHolder(accept_http);
 		curLoop->queueInLoop(bind(&httpData::handleNewConn, accept_http));	//加入到pendingFuntors
@@ -73,14 +73,14 @@ void server::handleNewConnection()
 
 }
 
-void server::removeConnectionInLoop(const imageDataPtr myConn)
-{
-	loop_->assertInLoopThread();
-	cout << "Server::removeConnectionInLoop - connection[fd ]  = " << myConn->getFd() << endl;
-	size_t n = connections_.erase(myConn->getFd());
-	(void)n;
-	assert( n == 1);
-	EventLoop *ioLoop = myConn->getLoop();
-	ioLoop->queueInLoop(bind(&imageData::connectDestroyed, myConn));
-}
+// void server::removeConnectionInLoop(const spHttpData myConn)
+// {
+// 	loop_->assertInLoopThread();
+// 	cout << "Server::removeConnectionInLoop - connection[fd ]  = " << myConn->getFd() << endl;
+// 	size_t n = connections_.erase(myConn->getFd());
+// 	(void)n;
+// 	assert( n == 1);
+// 	EventLoop *ioLoop = myConn->getLoop();
+// 	ioLoop->queueInLoop(bind(&imageData::connectDestroyed, myConn));
+// }
 

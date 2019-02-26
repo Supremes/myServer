@@ -54,8 +54,9 @@ struct HttpRequestLine{
 struct HttpRequestHead{
 	string Connection;
 	string Host;
-    string Accept;
+    string Agent;
     string contentType;
+	string Date;
 };
 
 struct HttpRequestBody{
@@ -74,11 +75,10 @@ public:
 	void handleClose();
 	void handleError();
 	//解析请求行
-	bool parseLine();
+	bool parseLine(string &data);
 	//解析请求头
-	bool parseHeader();
-	//解析请求报文体
-	void parseRequest();
+	bool parseHeader(string &data);
+
 	//根据httpData中的请求数据进行响应
 	bool doHttpData();
 
@@ -94,6 +94,7 @@ public:
     {
         return spChannel;
     }
+	EventLoop* getLoop(){ return loop_; }
 private:
 
 	HttpRequestLine line_;

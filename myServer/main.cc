@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    int port = 6666;
+    int port = 4444;
     if(argc == 2)
         port = atoi(argv[1]);
     EventLoop mainLoop;

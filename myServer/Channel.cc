@@ -25,7 +25,7 @@ void Channel::handleWrite()
 {
 	if(writeCallback_)
 	{
-		cout << "handleWrite..." << endl;
+		//cout << "handleWrite..." << endl;
 		writeCallback_();
 	}
 }
@@ -34,7 +34,7 @@ void Channel::handleConn()
 {
 	if(connCallback_)
 	{
-		cout << "handleConn..." << endl;
+		//cout << "handleConn..." << endl;
 		connCallback_();
 	}
 }
@@ -43,23 +43,24 @@ void Channel::handleError()
 {
 	if(errorCallback_)
 	{
-		cout << "handleError..." << endl;
+		//cout << "handleError..." << endl;
 		errorCallback_();
 	}
 }
 
 void Channel::handleEvents()
 {
-	if(revents_ & EPOLLERR){
-		handleError();
-	}
 	if(revents_ & EPOLLIN){
 		handleRead();
 	}
 	if(revents_ & EPOLLOUT){
 		handleWrite();
 	}
-	handleConn();
+	if(revents_ & EPOLLERR){
+		handleError();
+	}
+
+	//handleConn();
 }
 
 void Channel::remove()
