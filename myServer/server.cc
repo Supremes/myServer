@@ -63,13 +63,14 @@ void server::handleNewConnection()
 		}
 		
 		setSocketNodelay(accept_fd);
+		setSocketNoLinger(accept_fd);
+		setSocketNodelay(accept_fd);
 		spHttpData accept_http(new httpData(curLoop, accept_fd));
 		connections_[accept_fd] = accept_http;
 		accept_http->getChannel()->setHolder(accept_http);
 		curLoop->queueInLoop(bind(&httpData::handleNewConn, accept_http));	//加入到pendingFuntors
 	}
 
-	//acceptChannel_->setEvents(EPOLLIN);
 
 }
 

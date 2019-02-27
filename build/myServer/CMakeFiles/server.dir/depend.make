@@ -58,8 +58,6 @@ myServer/CMakeFiles/server.dir/base/logger.cc.o: ../myServer/base/MutexLock.h
 myServer/CMakeFiles/server.dir/base/logger.cc.o: ../myServer/base/logger.cc
 myServer/CMakeFiles/server.dir/base/logger.cc.o: ../myServer/base/logger.h
 
-myServer/CMakeFiles/server.dir/base/test_logger.cc.o: ../myServer/base/MutexLock.h
-myServer/CMakeFiles/server.dir/base/test_logger.cc.o: ../myServer/base/logger.h
 myServer/CMakeFiles/server.dir/base/test_logger.cc.o: ../myServer/base/test_logger.cc
 
 myServer/CMakeFiles/server.dir/base/utility.cc.o: ../myServer/base/utility.cc
@@ -246,6 +244,8 @@ myServer/CMakeFiles/server.dir/server.cc.o: ../myServer/httpData.h
 myServer/CMakeFiles/server.dir/server.cc.o: ../myServer/server.cc
 myServer/CMakeFiles/server.dir/server.cc.o: ../myServer/server.h
 myServer/CMakeFiles/server.dir/server.cc.o: ../myServer/timer.h
+
+myServer/CMakeFiles/server.dir/test.cc.o: ../myServer/test.cc
 
 myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/Channel.h
 myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/Epoller.h

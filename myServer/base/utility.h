@@ -27,6 +27,6 @@ ssize_t writen(int fd, string &buf);
 inline int djk_is_file_existed(const char *path);
 void splitString(const string &s, const string &p, vector<string> &result);
 pid_t gettid();
-void setSocketNodelay(int fd);
+void setSocketNodelay(int fd);  //禁用Nagle算法，允许小包的发送
 void handle_for_sigpipe();
-void setSocketKeepAlive(int sockfd_, bool on);
+void setSocketNoLinger(int fd); //优雅关闭

@@ -41,7 +41,7 @@ EventLoop::EventLoop():
 EventLoop::~EventLoop()
 {
 	close(wakeupfd_);
-	looping_ = false;
+	t_loopInThisThread = NULL;
 }
 
 void EventLoop::handleConn()
@@ -131,7 +131,7 @@ void EventLoop::loop()
 		//cout << "3.doPendingFunctors..." << endl;
 		doPendingFunctors();
 		// cout << "4.handleExpired..." << endl;
-		// epoller_->handleExpired();
+		epoller_->handleExpired();
 	}
 	
 	looping_ = false;

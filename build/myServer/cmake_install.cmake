@@ -1,4 +1,4 @@
-# Install script for directory: /home/supreme/djk/myServer/myServer
+# Install script for directory: /home/supreme/myServer/myServer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/supreme/djk/myServer/build/myServer/client/cmake_install.cmake")
+  include("/home/supreme/myServer/build/myServer/client/cmake_install.cmake")
 
 endif()
 

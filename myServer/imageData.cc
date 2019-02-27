@@ -19,7 +19,6 @@ imageData::imageData(EventLoop *loop, int connfd):
             channel_->setReadResponse(bind(&imageData::handleRead, this));
             //channel_->setWriteResponse(bind(&imageData::handleWrite, this));
             //channel_->setErrorResponse(bind(&imageData::handleError, this));
-            setSocketKeepAlive(connfd_, true);
             // channel_->setEvents(EPOLLIN | EPOLLOUT);
             // loop_->addToPoller(channel_);   
         }

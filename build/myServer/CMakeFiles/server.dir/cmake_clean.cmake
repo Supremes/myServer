@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/server.dir/main.cc.o"
+  "CMakeFiles/server.dir/test.cc.o"
   "CMakeFiles/server.dir/EventLoopThreadPool.cc.o"
   "CMakeFiles/server.dir/timer.cc.o"
   "CMakeFiles/server.dir/Channel.cc.o"

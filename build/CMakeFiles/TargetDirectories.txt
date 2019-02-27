@@ -1,8 +1,8 @@
-/home/supreme/djk/myServer/build/CMakeFiles/edit_cache.dir
-/home/supreme/djk/myServer/build/CMakeFiles/rebuild_cache.dir
-/home/supreme/djk/myServer/build/myServer/CMakeFiles/edit_cache.dir
-/home/supreme/djk/myServer/build/myServer/CMakeFiles/rebuild_cache.dir
-/home/supreme/djk/myServer/build/myServer/CMakeFiles/server.dir
-/home/supreme/djk/myServer/build/myServer/client/CMakeFiles/rebuild_cache.dir
-/home/supreme/djk/myServer/build/myServer/client/CMakeFiles/edit_cache.dir
-/home/supreme/djk/myServer/build/myServer/client/CMakeFiles/client.dir
+/home/supreme/myServer/build/CMakeFiles/edit_cache.dir
+/home/supreme/myServer/build/CMakeFiles/rebuild_cache.dir
+/home/supreme/myServer/build/myServer/CMakeFiles/edit_cache.dir
+/home/supreme/myServer/build/myServer/CMakeFiles/rebuild_cache.dir
+/home/supreme/myServer/build/myServer/CMakeFiles/server.dir
+/home/supreme/myServer/build/myServer/client/CMakeFiles/rebuild_cache.dir
+/home/supreme/myServer/build/myServer/client/CMakeFiles/edit_cache.dir
+/home/supreme/myServer/build/myServer/client/CMakeFiles/client.dir

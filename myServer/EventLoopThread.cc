@@ -46,4 +46,5 @@ void EventLoopThread::threadfunc()
 	}
 
 	loop.loop();
+	loop_ = NULL;
 }

@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/supreme/djk/myServer/myServer/base -isystem /usr/local/include -isystem /usr/local/include/opencv 
+CXX_INCLUDES = -I/home/supreme/myServer/myServer/base -isystem /usr/local/include -isystem /usr/local/include/opencv 
 

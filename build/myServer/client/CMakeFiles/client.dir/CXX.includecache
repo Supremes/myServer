@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/supreme/djk/myServer/myServer/client/client.cc
+/home/supreme/myServer/myServer/client/client.cc
 iostream
 -
 stdio.h

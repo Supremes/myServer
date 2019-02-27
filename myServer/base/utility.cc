@@ -197,43 +197,10 @@ void setSocketKeepAlive(int sockfd_, bool on)
     setsockopt(sockfd_, SOL_SOCKET, SO_KEEPALIVE,
                 &optval, static_cast<socklen_t>(sizeof optval));
 }
-// unique_ptr<int> thread_func()
-// {
-// 	unique_ptr<int> a(new int(2));
-// 	*a += 1;
-// 	cout << *a << endl;
-// 	return a;
-// }
-// int main(int argc, char const *argv[])
-// {
-	// string requestHead = "Connection: Keep-Alive\r\nHost: 127.0.0.1:5555\r\n";
-	// vector<string> res;
-	// splitString(requestHead, "\r\n", res);
-	// cout << res[0] << endl << res[1] << endl;
-	// cout << "pos = " << requestHead.find("\n");
-	// do{
-	// 	cout << "in while" << endl;
-	// }while(false);
-
-	// shared_ptr<int> p1(new int(1));
-	// {
-	// 	shared_ptr<int> p2 = p1;
-	// 	cout << "p1 count = " << p1.use_count() << endl;
-	// 	cout << "p2 count = " << p2.use_count() << endl;
-	// }
-	// unique_ptr<int> p3(new int(2));
-	// unique_ptr<int> p4 = move(p3);
-	// cout << "p1 count = " << p1.use_count() << endl;
-	// cout << "p4 = " << *p4 << endl;
-
-	// unique_ptr<int> b = move(thread_func());
-	// cout << *b << endl;
-
-	//cout <<  "同时并发在一个程序中的线程数量: " << thread::hardware_concurrency() << endl;
-//     int fd = open("1.txt", O_WRONLY, 0777);
-//     cout << fd << endl;
-//     string res;
-//     int numOfRead = readn(fd, res);
-//     cout << res << endl;
-// 	return 0;
-// }
+void setSocketNoLinger(int fd) 
+{
+    struct linger linger_;
+    linger_.l_onoff = 1;
+    linger_.l_linger = 30;
+    setsockopt(fd, SOL_SOCKET, SO_LINGER,(const char *) &linger_, sizeof(linger_));
+}
