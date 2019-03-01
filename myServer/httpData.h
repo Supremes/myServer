@@ -32,18 +32,6 @@ enum ParseState{
 	PARSE_BODY
 };
 
-class MimeType{
-private:
-	static void init();
-	static unordered_map<string, string> mime;
-	MimeType();
-	MimeType(const MimeType &m);
-public:
-	static string getMime(const string &suffix);
-private:
-	//设置线程变量的原因
-	static pthread_once_t& once_control;
-};
 
 struct HttpRequestLine{
 	string method;
@@ -68,7 +56,7 @@ struct HttpRequestBody{
 class httpData: public enable_shared_from_this<httpData>{
 public:
 	httpData(EventLoop *loop, int connfd);
-	//~httpData();
+	~httpData(){ close(connfd_); }
 	
 	void seperateTimer();
 

@@ -260,6 +260,33 @@ EventLoopThreadPool.cc.s:
 	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.s
 .PHONY : EventLoopThreadPool.cc.s
 
+TcpServer.o: TcpServer.cc.o
+
+.PHONY : TcpServer.o
+
+# target to build an object file
+TcpServer.cc.o:
+	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/TcpServer.cc.o
+.PHONY : TcpServer.cc.o
+
+TcpServer.i: TcpServer.cc.i
+
+.PHONY : TcpServer.i
+
+# target to preprocess a source file
+TcpServer.cc.i:
+	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/TcpServer.cc.i
+.PHONY : TcpServer.cc.i
+
+TcpServer.s: TcpServer.cc.s
+
+.PHONY : TcpServer.s
+
+# target to generate assembly for a file
+TcpServer.cc.s:
+	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/TcpServer.cc.s
+.PHONY : TcpServer.cc.s
+
 base/Buffer.o: base/Buffer.cc.o
 
 .PHONY : base/Buffer.o
@@ -503,33 +530,6 @@ main.cc.s:
 	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/main.cc.s
 .PHONY : main.cc.s
 
-server.o: server.cc.o
-
-.PHONY : server.o
-
-# target to build an object file
-server.cc.o:
-	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/server.cc.o
-.PHONY : server.cc.o
-
-server.i: server.cc.i
-
-.PHONY : server.i
-
-# target to preprocess a source file
-server.cc.i:
-	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/server.cc.i
-.PHONY : server.cc.i
-
-server.s: server.cc.s
-
-.PHONY : server.s
-
-# target to generate assembly for a file
-server.cc.s:
-	cd /home/supreme/myServer/build && $(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/server.cc.s
-.PHONY : server.cc.s
-
 test.o: test.cc.o
 
 .PHONY : test.o
@@ -608,6 +608,9 @@ help:
 	@echo "... EventLoopThreadPool.o"
 	@echo "... EventLoopThreadPool.i"
 	@echo "... EventLoopThreadPool.s"
+	@echo "... TcpServer.o"
+	@echo "... TcpServer.i"
+	@echo "... TcpServer.s"
 	@echo "... base/Buffer.o"
 	@echo "... base/Buffer.i"
 	@echo "... base/Buffer.s"
@@ -635,9 +638,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... server.o"
-	@echo "... server.i"
-	@echo "... server.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

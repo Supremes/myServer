@@ -29,8 +29,9 @@
 - #### Webbench压力测试
 - 线程数为４
 1.  对服务器发起了并发量为1000的请求，测试时长为１秒
-![time1client1000.png](https://upload-images.jianshu.io/upload_images/569253-96d35942f0b1d0eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/569253-ae08173fb8818dcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
 2.  对服务器发起了并发量为1000的请求,　测试时长为１０秒
-![time10client1000.png](https://upload-images.jianshu.io/upload_images/569253-fcb90f2f16922eec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
--  结论
-    随着测试时长的增加，服务器的吞吐量出现了下降
+![](https://upload-images.jianshu.io/upload_images/569253-e90fad7c19b67cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+

@@ -16,19 +16,9 @@ httpData::httpData(EventLoop* loop, int connfd):
 
 	spChannel->setReadResponse(bind(&httpData::handleRead, this));
 	spChannel->setWriteResponse(bind(&httpData::handleWrite, this));
-	//spChannel->setConnResponse(bind(&httpData::handleConn, this));
-
 }
 
-// string MimeType::getMime(const string& suffix)
-// {
-// 	//需要设置线程变量初始化的原因是什么？
-// 	//pthread_once(&once_control, MimeType::init);
-// 	if(mime.find(suffix) == mime.end())
-// 		return mime["default"];
-// 	else
-// 		return mime[suffix];
-// }
+
 void httpData::seperateTimer()
 {
 	shared_ptr<timerNode> this_timer(timer_.lock());
@@ -37,7 +27,7 @@ void httpData::seperateTimer()
 void httpData::handleClose()
 {
 	connectionState_ = HTTP_DISCONNECTED;
-	//设置guard共享智能指针的原因是什么
+	
 	shared_ptr<httpData> guard(shared_from_this());
 	loop_->removeFromPoller(spChannel);
 	seperateTimer();
@@ -142,7 +132,6 @@ bool httpData::parseHeader(string &data)
 		return false;
 
 	for(int i = 0; i < headers.size(); i++){
-		cout << "header[i] = " << headers[i] << endl;
 		if(headers[i].size() == 0)	
 			continue;
 		vector<string> res;
@@ -186,7 +175,6 @@ bool httpData::doHttpData()
         
         string fileName = line_.url;
         struct stat fileInfo;
-		cout << "fileName = " << fileName << endl;
         if(stat(fileName.c_str(), &fileInfo) < 0){
             doError();
             return false;

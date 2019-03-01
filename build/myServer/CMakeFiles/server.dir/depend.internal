@@ -43,6 +43,21 @@ myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o
  /home/supreme/myServer/myServer/base/CurrentThread.h
  /home/supreme/myServer/myServer/base/MutexLock.h
  /home/supreme/myServer/myServer/base/Thread.h
+myServer/CMakeFiles/server.dir/TcpServer.cc.o
+ /home/supreme/myServer/myServer/Channel.h
+ /home/supreme/myServer/myServer/Epoller.h
+ /home/supreme/myServer/myServer/EventLoop.h
+ /home/supreme/myServer/myServer/EventLoopThread.h
+ /home/supreme/myServer/myServer/EventLoopThreadPool.h
+ /home/supreme/myServer/myServer/TcpServer.cc
+ /home/supreme/myServer/myServer/TcpServer.h
+ /home/supreme/myServer/myServer/base/Condition.h
+ /home/supreme/myServer/myServer/base/CurrentThread.h
+ /home/supreme/myServer/myServer/base/MutexLock.h
+ /home/supreme/myServer/myServer/base/Thread.h
+ /home/supreme/myServer/myServer/base/utility.h
+ /home/supreme/myServer/myServer/httpData.h
+ /home/supreme/myServer/myServer/timer.h
 myServer/CMakeFiles/server.dir/base/Buffer.cc.o
  /home/supreme/myServer/myServer/base/Buffer.cc
 myServer/CMakeFiles/server.dir/base/Condition.cc.o
@@ -221,6 +236,7 @@ myServer/CMakeFiles/server.dir/main.cc.o
  /home/supreme/myServer/myServer/EventLoop.h
  /home/supreme/myServer/myServer/EventLoopThread.h
  /home/supreme/myServer/myServer/EventLoopThreadPool.h
+ /home/supreme/myServer/myServer/TcpServer.h
  /home/supreme/myServer/myServer/base/Condition.h
  /home/supreme/myServer/myServer/base/CurrentThread.h
  /home/supreme/myServer/myServer/base/MutexLock.h
@@ -228,22 +244,6 @@ myServer/CMakeFiles/server.dir/main.cc.o
  /home/supreme/myServer/myServer/base/utility.h
  /home/supreme/myServer/myServer/httpData.h
  /home/supreme/myServer/myServer/main.cc
- /home/supreme/myServer/myServer/server.h
- /home/supreme/myServer/myServer/timer.h
-myServer/CMakeFiles/server.dir/server.cc.o
- /home/supreme/myServer/myServer/Channel.h
- /home/supreme/myServer/myServer/Epoller.h
- /home/supreme/myServer/myServer/EventLoop.h
- /home/supreme/myServer/myServer/EventLoopThread.h
- /home/supreme/myServer/myServer/EventLoopThreadPool.h
- /home/supreme/myServer/myServer/base/Condition.h
- /home/supreme/myServer/myServer/base/CurrentThread.h
- /home/supreme/myServer/myServer/base/MutexLock.h
- /home/supreme/myServer/myServer/base/Thread.h
- /home/supreme/myServer/myServer/base/utility.h
- /home/supreme/myServer/myServer/httpData.h
- /home/supreme/myServer/myServer/server.cc
- /home/supreme/myServer/myServer/server.h
  /home/supreme/myServer/myServer/timer.h
 myServer/CMakeFiles/server.dir/test.cc.o
  /home/supreme/myServer/myServer/test.cc

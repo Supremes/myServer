@@ -17,10 +17,7 @@ imageData::imageData(EventLoop *loop, int connfd):
         channel_(new Channel(loop_, connfd_))
         {
             channel_->setReadResponse(bind(&imageData::handleRead, this));
-            //channel_->setWriteResponse(bind(&imageData::handleWrite, this));
-            //channel_->setErrorResponse(bind(&imageData::handleError, this));
-            // channel_->setEvents(EPOLLIN | EPOLLOUT);
-            // loop_->addToPoller(channel_);   
+
         }
 imageData::~imageData(){  
     cout << "connection:dtor at "  << this << "fd = " << connfd_ << endl;;

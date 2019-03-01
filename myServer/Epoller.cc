@@ -57,7 +57,7 @@ vector<spChannel> Epoller::poll()
 void Epoller::epoll_add(spChannel channel, int timeout)
 {
 	int fd = channel->getFd();
-	cout << "epoll_add fd: " << fd << endl;
+	//cout << "epoll_add fd: " << fd << endl;
 	if (timeout > 0)
 	{
 		timerNodeManager_->addTimer(channel->getHolder(), timeout);

@@ -56,7 +56,6 @@ private:
 	vector<Functor> pendingFunctors_;
 	//调用队列中分发事件的标志
 	bool callingPendingFunctors_;
-	//阅读该类的封装实现
 	mutable MutexLock mutex_;
 	//控制loop()循环的开始与结束
 	bool quit_;

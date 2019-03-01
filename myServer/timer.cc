@@ -10,7 +10,7 @@ timerNode::timerNode(shared_ptr<httpData> requestData, int timeout):
 {
 	struct timeval now;
 	gettimeofday(&now, NULL);
-	expiredTimer = now.tv_sec * 1000 + now.tv_usec / 1000 + timeout;
+	expiredTimer = (((now.tv_sec % 10000) * 1000) + (now.tv_usec / 1000)) + timeout;
 }
 timerNode::~timerNode()
 {
@@ -23,7 +23,7 @@ void timerNode::update(int timeout)
 {
 	struct timeval now;
 	gettimeofday(&now, NULL);
-	expiredTimer = now.tv_sec * 1000 + now.tv_usec / 1000 + timeout;
+	expiredTimer = (((now.tv_sec % 10000) * 1000) + (now.tv_usec / 1000)) + timeout;
 }
 
 void timerNode::clearRequests()
@@ -36,7 +36,7 @@ bool timerNode::isValid()
 {
 	struct timeval now;
 	gettimeofday(&now, NULL);
-	size_t time = now.tv_sec * 1000 + now.tv_usec / 1000;
+	size_t time = (((now.tv_sec % 10000) * 1000) + (now.tv_usec / 1000));
 	if(time < expiredTimer)
 		return true;
 	else{

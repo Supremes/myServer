@@ -17,7 +17,6 @@ int createEventfd()
     return evtfd;
 }
 
-//后续优化编写
 EventLoop::EventLoop():
 		looping_(false),
 		threadId_(CurrentThread::tid()),
@@ -55,7 +54,7 @@ void EventLoop::handleRead()
 	ssize_t n = read(wakeupfd_, &one, sizeof one);
 	if (n != sizeof one)
 	{	//等待编写LOG日志库
-		//LOG_ERROR << "EventLoop::handleRead() reads " << n << " bytes instead of 8";
+		//LOG << "EventLoop::handleRead() reads " << n << " bytes instead of 8";
 	}
 }
 
@@ -98,14 +97,12 @@ void EventLoop::doPendingFunctors()
 		MutexLock lock(mutex_);
 		functors.swap(pendingFunctors_);
 	}
-	//cout << "functors's size : " << functors.size() << endl;
 	for(size_t i = 0; i < functors.size(); i++)
 		functors[i]();
 
 	callingPendingFunctors_ = false;
 	
 }
-//后续优化编写
 void EventLoop::loop()
 {
 	assert(!looping_);
@@ -115,22 +112,13 @@ void EventLoop::loop()
 	vector<shared_ptr<Channel> > channelList;
 
 	while(!quit_){
-		//cout << "loop fd = " << wakeupfd_ << endl;
 		channelList.clear();
-		//cout << "1. poll...." << endl;
 		channelList = epoller_->poll();
-		// cout <<"channelList fd:"; 
-		// for(auto &ret: channelList)
-		// 	cout << ret->getFd() << "\t";
-		// cout << endl;
-		//cout << "2.handleEvents...." << endl;
+
 		for(auto &ret: channelList){
-			//cout << "handling fd:" << ret->getFd() << endl;
 			ret->handleEvents();
 		}
-		//cout << "3.doPendingFunctors..." << endl;
 		doPendingFunctors();
-		// cout << "4.handleExpired..." << endl;
 		epoller_->handleExpired();
 	}
 	

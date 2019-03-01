@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/supreme/myServer/myServer/EventLoop.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/EventLoop.cc.o"
   "/home/supreme/myServer/myServer/EventLoopThread.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/EventLoopThread.cc.o"
   "/home/supreme/myServer/myServer/EventLoopThreadPool.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o"
+  "/home/supreme/myServer/myServer/TcpServer.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/TcpServer.cc.o"
   "/home/supreme/myServer/myServer/base/Buffer.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/base/Buffer.cc.o"
   "/home/supreme/myServer/myServer/base/Condition.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/base/Condition.cc.o"
   "/home/supreme/myServer/myServer/base/Thread.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/base/Thread.cc.o"
@@ -18,7 +19,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/supreme/myServer/myServer/httpData.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/httpData.cc.o"
   "/home/supreme/myServer/myServer/imageData.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/imageData.cc.o"
   "/home/supreme/myServer/myServer/main.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/main.cc.o"
-  "/home/supreme/myServer/myServer/server.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/server.cc.o"
   "/home/supreme/myServer/myServer/test.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/test.cc.o"
   "/home/supreme/myServer/myServer/timer.cc" "/home/supreme/myServer/build/myServer/CMakeFiles/server.dir/timer.cc.o"
   )
