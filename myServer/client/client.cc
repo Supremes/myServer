@@ -66,6 +66,7 @@ int main(int argc, char const *argv[])
         if(connect(sockfd[i], (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == 0){
             string send = "GET /home/supreme/djk/myServer/myServer/test.md HTTP/1.0\r\n" + requestHead[i];
             setSocketNonBlocking1(sockfd[i]);
+            cout << "send data = " << send;
             cout << "sockfd = " << sockfd[i] << endl;
             write(sockfd[i], send.c_str(), send.size());
             sleep(1);

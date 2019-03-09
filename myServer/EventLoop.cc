@@ -33,7 +33,6 @@ EventLoop::EventLoop():
 	}
 	wakeupChannel_->setEvents(EPOLLIN);
 	wakeupChannel_->setReadResponse(bind(&EventLoop::handleRead, this));
-	wakeupChannel_->setConnResponse(bind(&EventLoop::handleConn, this));
 	epoller_->epoll_add(wakeupChannel_, 0);
 }
 
@@ -68,21 +67,21 @@ void EventLoop::wakeup()
 	}
 }
 
-void EventLoop::runInLoop(const Functor& function)
+void EventLoop::runInLoop(Functor&& function)
 {
 	if (isLoopInThread()){
 		cout << "isLoopInThread..." << endl;
 		function();
 	}else{
-		queueInLoop(function);
+		queueInLoop(std::move(function));
 	}
 }
 
-void EventLoop::queueInLoop(const Functor& function)
+void EventLoop::queueInLoop(Functor&& function)
 {
 	{
-		MutexLock lock(mutex_);
-		pendingFunctors_.push_back(function);
+		MutexLockGuard lock(mutex_);
+		pendingFunctors_.push_back(std::move(function));
 	}
 
 	if(!isLoopInThread() || callingPendingFunctors_)
@@ -94,7 +93,7 @@ void EventLoop::doPendingFunctors()
 	vector<Functor> functors;
 	callingPendingFunctors_ = true;
 	{
-		MutexLock lock(mutex_);
+		MutexLockGuard lock(mutex_);
 		functors.swap(pendingFunctors_);
 	}
 	for(size_t i = 0; i < functors.size(); i++)

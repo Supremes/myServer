@@ -14,7 +14,8 @@ server::server(EventLoop *loop, int port, int threadnum):
 				port_(port),
 				listenfd_(socket_bind_listen(port_)),
 				acceptChannel_(new Channel(loop_, listenfd_)),
-				threadnum_(threadnum)
+				threadnum_(threadnum),
+				mutex_()
 {
 	if(setSocketNonBlocking(listenfd_) < 0)
 		perror("listenfd_ set non block failed!");
@@ -27,30 +28,29 @@ void server::start()
 	acceptChannel_->setReadResponse(bind(&server::handleNewConnection, this));
 	acceptChannel_->setConnResponse(bind(&server::handleThisConnection, this));
 
-	//cout << "listenfd_ = " << listenfd_ << endl;
-	
 	loop_->addToPoller(acceptChannel_, 0);
 }
 
 server::~server()
 {
-	loop_->assertInLoopThread();
-	for(ConnectionMap::iterator it = connections_.begin(); it != connections_.end(); it++){
-		spHttpData conn(it->second);
-		it->second.reset();
-		conn->getLoop()->runInLoop(bind(&httpData::handleClose, conn));
-	}
+	// loop_->assertInLoopThread();
+	// for(ConnectionMap::iterator it = connections_.begin(); it != connections_.end(); it++){
+	// 	spHttpData conn(it->second);
+	// 	it->second.reset();
+	// 	conn->getLoop()->runInLoop(bind(&httpData::handleClose, conn));
+	// }
 }
 void server::handleNewConnection()
 {
-	//cout << "server::handleNewConnection()" << endl;
 
 	struct sockaddr_in client_addr = { 0 };
 	socklen_t client_addr_len = sizeof client_addr;
 	int accept_fd = 0;
 	while((accept_fd = accept(listenfd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0){
 		EventLoop *curLoop = pool_->getNextLoop();
+		cout << "getNextLoop" << endl;
 		cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
+
 		// 限制服务器的最大并发连接数
         // if (accept_fd >= MAXFDS)
         // {
@@ -64,7 +64,7 @@ void server::handleNewConnection()
 		
 		setSocketNodelay(accept_fd);
 		setSocketNoLinger(accept_fd);
-		setSocketNodelay(accept_fd);
+
 		spHttpData accept_http(new httpData(curLoop, accept_fd));
 		connections_[accept_fd] = accept_http;
 		accept_http->getChannel()->setHolder(accept_http);
@@ -73,15 +73,4 @@ void server::handleNewConnection()
 
 
 }
-
-// void server::removeConnectionInLoop(const spHttpData myConn)
-// {
-// 	loop_->assertInLoopThread();
-// 	cout << "Server::removeConnectionInLoop - connection[fd ]  = " << myConn->getFd() << endl;
-// 	size_t n = connections_.erase(myConn->getFd());
-// 	(void)n;
-// 	assert( n == 1);
-// 	EventLoop *ioLoop = myConn->getLoop();
-// 	ioLoop->queueInLoop(bind(&imageData::connectDestroyed, myConn));
-// }
 

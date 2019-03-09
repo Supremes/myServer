@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/supreme/myServer/myServer/Channel.cc
+/home/supreme/djk/myServer/myServer/Channel.cc
 Channel.h
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 iostream
 -
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 string
 -
 unordered_map
@@ -28,11 +28,11 @@ functional
 iostream
 -
 
-/home/supreme/myServer/myServer/Epoller.cc
+/home/supreme/djk/myServer/myServer/Epoller.cc
 Epoller.h
-/home/supreme/myServer/myServer/Epoller.h
+/home/supreme/djk/myServer/myServer/Epoller.h
 timer.h
-/home/supreme/myServer/myServer/timer.h
+/home/supreme/djk/myServer/myServer/timer.h
 assert.h
 -
 iostream
@@ -40,11 +40,11 @@ iostream
 unistd.h
 -
 timer.h
-/home/supreme/myServer/myServer/timer.h
+/home/supreme/djk/myServer/myServer/timer.h
 
-/home/supreme/myServer/myServer/Epoller.h
+/home/supreme/djk/myServer/myServer/Epoller.h
 Channel.h
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 memory
 -
 vector
@@ -52,9 +52,9 @@ vector
 map
 -
 
-/home/supreme/myServer/myServer/EventLoop.cc
+/home/supreme/djk/myServer/myServer/EventLoop.cc
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 sys/eventfd.h
 -
 sys/epoll.h
@@ -62,17 +62,17 @@ sys/epoll.h
 unistd.h
 -
 
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 Epoller.h
-/home/supreme/myServer/myServer/Epoller.h
+/home/supreme/djk/myServer/myServer/Epoller.h
 Channel.h
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 base/MutexLock.h
-/home/supreme/myServer/myServer/base/MutexLock.h
+/home/supreme/djk/myServer/myServer/base/MutexLock.h
 base/CurrentThread.h
-/home/supreme/myServer/myServer/base/CurrentThread.h
+/home/supreme/djk/myServer/myServer/base/CurrentThread.h
 base/Thread.h
-/home/supreme/myServer/myServer/base/Thread.h
+/home/supreme/djk/myServer/myServer/base/Thread.h
 vector
 -
 memory
@@ -80,41 +80,41 @@ memory
 assert.h
 -
 
-/home/supreme/myServer/myServer/EventLoopThread.cc
+/home/supreme/djk/myServer/myServer/EventLoopThread.cc
 EventLoopThread.h
-/home/supreme/myServer/myServer/EventLoopThread.h
+/home/supreme/djk/myServer/myServer/EventLoopThread.h
 
-/home/supreme/myServer/myServer/EventLoopThread.h
+/home/supreme/djk/myServer/myServer/EventLoopThread.h
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 base/MutexLock.h
-/home/supreme/myServer/myServer/base/MutexLock.h
+/home/supreme/djk/myServer/myServer/base/MutexLock.h
 base/Thread.h
-/home/supreme/myServer/myServer/base/Thread.h
+/home/supreme/djk/myServer/myServer/base/Thread.h
 base/Condition.h
-/home/supreme/myServer/myServer/base/Condition.h
+/home/supreme/djk/myServer/myServer/base/Condition.h
 
-/home/supreme/myServer/myServer/EventLoopThreadPool.cc
+/home/supreme/djk/myServer/myServer/EventLoopThreadPool.cc
 EventLoopThreadPool.h
-/home/supreme/myServer/myServer/EventLoopThreadPool.h
+/home/supreme/djk/myServer/myServer/EventLoopThreadPool.h
 
-/home/supreme/myServer/myServer/EventLoopThreadPool.h
+/home/supreme/djk/myServer/myServer/EventLoopThreadPool.h
 EventLoopThread.h
-/home/supreme/myServer/myServer/EventLoopThread.h
+/home/supreme/djk/myServer/myServer/EventLoopThread.h
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 memory
 -
 vector
 -
 
-/home/supreme/myServer/myServer/TcpServer.cc
+/home/supreme/djk/myServer/myServer/TcpServer.cc
 TcpServer.h
-/home/supreme/myServer/myServer/TcpServer.h
+/home/supreme/djk/myServer/myServer/TcpServer.h
 base/utility.h
-/home/supreme/myServer/myServer/base/utility.h
+/home/supreme/djk/myServer/myServer/base/utility.h
 httpData.h
-/home/supreme/myServer/myServer/httpData.h
+/home/supreme/djk/myServer/myServer/httpData.h
 iostream
 -
 sys/socket.h
@@ -126,33 +126,33 @@ arpa/inet.h
 assert.h
 -
 
-/home/supreme/myServer/myServer/TcpServer.h
+/home/supreme/djk/myServer/myServer/TcpServer.h
 Epoller.h
-/home/supreme/myServer/myServer/Epoller.h
+/home/supreme/djk/myServer/myServer/Epoller.h
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 Channel.h
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 base/utility.h
-/home/supreme/myServer/myServer/base/utility.h
+/home/supreme/djk/myServer/myServer/base/utility.h
 base/MutexLock.h
-/home/supreme/myServer/myServer/base/MutexLock.h
+/home/supreme/djk/myServer/myServer/base/MutexLock.h
 EventLoopThreadPool.h
-/home/supreme/myServer/myServer/EventLoopThreadPool.h
+/home/supreme/djk/myServer/myServer/EventLoopThreadPool.h
 httpData.h
-/home/supreme/myServer/myServer/httpData.h
+/home/supreme/djk/myServer/myServer/httpData.h
 
-/home/supreme/myServer/myServer/base/Buffer.cc
+/home/supreme/djk/myServer/myServer/base/Buffer.cc
 
-/home/supreme/myServer/myServer/base/Buffer.h
+/home/supreme/djk/myServer/myServer/base/Buffer.h
 
-/home/supreme/myServer/myServer/base/Condition.cc
+/home/supreme/djk/myServer/myServer/base/Condition.cc
 Condition.h
-/home/supreme/myServer/myServer/base/Condition.h
+/home/supreme/djk/myServer/myServer/base/Condition.h
 iostream
 -
 
-/home/supreme/myServer/myServer/base/Condition.h
+/home/supreme/djk/myServer/myServer/base/Condition.h
 pthread.h
 -
 assert.h
@@ -162,39 +162,73 @@ time.h
 errno.h
 -
 MutexLock.h
-/home/supreme/myServer/myServer/base/MutexLock.h
+/home/supreme/djk/myServer/myServer/base/MutexLock.h
 
-/home/supreme/myServer/myServer/base/CurrentThread.h
+/home/supreme/djk/myServer/myServer/base/CountDownLatch.cpp
+CountDownLatch.h
+/home/supreme/djk/myServer/myServer/base/CountDownLatch.h
+
+/home/supreme/djk/myServer/myServer/base/CountDownLatch.h
+Condition.h
+/home/supreme/djk/myServer/myServer/base/Condition.h
+MutexLock.h
+/home/supreme/djk/myServer/myServer/base/MutexLock.h
+
+/home/supreme/djk/myServer/myServer/base/CurrentThread.h
 stdint.h
 -
 
-/home/supreme/myServer/myServer/base/MutexLock.h
+/home/supreme/djk/myServer/myServer/base/MutexLock.h
 pthread.h
 -
 assert.h
 -
 
-/home/supreme/myServer/myServer/base/Thread.cc
+/home/supreme/djk/myServer/myServer/base/Thread.cc
 Thread.h
-/home/supreme/myServer/myServer/base/Thread.h
+/home/supreme/djk/myServer/myServer/base/Thread.h
+CurrentThread.h
+/home/supreme/djk/myServer/myServer/base/CurrentThread.h
+memory
+-
+errno.h
+-
+stdio.h
+-
+unistd.h
+-
+sys/prctl.h
+-
+sys/types.h
+-
+linux/unistd.h
+-
+stdint.h
+-
+assert.h
+-
 iostream
 -
-CurrentThread.h
-/home/supreme/myServer/myServer/base/CurrentThread.h
-utility.h
-/home/supreme/myServer/myServer/base/utility.h
 
-/home/supreme/myServer/myServer/base/Thread.h
-pthread.h
--
+/home/supreme/djk/myServer/myServer/base/Thread.h
+CountDownLatch.h
+/home/supreme/djk/myServer/myServer/base/CountDownLatch.h
 functional
 -
-assert.h
+memory
+-
+pthread.h
+-
+string
+-
+sys/syscall.h
+-
+unistd.h
 -
 
-/home/supreme/myServer/myServer/base/logger.cc
+/home/supreme/djk/myServer/myServer/base/logger.cc
 logger.h
-/home/supreme/myServer/myServer/base/logger.h
+/home/supreme/djk/myServer/myServer/base/logger.h
 chrono
 -
 ctime
@@ -204,7 +238,7 @@ map
 iomanip
 -
 
-/home/supreme/myServer/myServer/base/logger.h
+/home/supreme/djk/myServer/myServer/base/logger.h
 string
 -
 sstream
@@ -216,15 +250,15 @@ mutex
 iostream
 -
 MutexLock.h
-/home/supreme/myServer/myServer/base/MutexLock.h
+/home/supreme/djk/myServer/myServer/base/MutexLock.h
 
-/home/supreme/myServer/myServer/base/test_logger.cc
+/home/supreme/djk/myServer/myServer/base/test_logger.cc
 
-/home/supreme/myServer/myServer/base/utility.cc
+/home/supreme/djk/myServer/myServer/base/utility.cc
 utility.h
-/home/supreme/myServer/myServer/base/utility.h
+/home/supreme/djk/myServer/myServer/base/utility.h
 
-/home/supreme/myServer/myServer/base/utility.h
+/home/supreme/djk/myServer/myServer/base/utility.h
 iostream
 -
 string
@@ -260,61 +294,61 @@ memory
 thread
 -
 
-/home/supreme/myServer/myServer/httpData.cc
+/home/supreme/djk/myServer/myServer/httpData.cc
 httpData.h
-/home/supreme/myServer/myServer/httpData.h
+/home/supreme/djk/myServer/myServer/httpData.h
 timer.h
-/home/supreme/myServer/myServer/timer.h
+/home/supreme/djk/myServer/myServer/timer.h
 
-/home/supreme/myServer/myServer/httpData.h
+/home/supreme/djk/myServer/myServer/httpData.h
 base/utility.h
-/home/supreme/myServer/myServer/base/utility.h
+/home/supreme/djk/myServer/myServer/base/utility.h
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 Channel.h
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 timer.h
-/home/supreme/myServer/myServer/timer.h
+/home/supreme/djk/myServer/myServer/timer.h
 memory
 -
 
-/home/supreme/myServer/myServer/imageData.cc
+/home/supreme/djk/myServer/myServer/imageData.cc
 imageData.h
-/home/supreme/myServer/myServer/imageData.h
+/home/supreme/djk/myServer/myServer/imageData.h
 opencv2/highgui/highgui.hpp
-/home/supreme/myServer/myServer/opencv2/highgui/highgui.hpp
+/home/supreme/djk/myServer/myServer/opencv2/highgui/highgui.hpp
 opencv2/stitching/stitcher.hpp
-/home/supreme/myServer/myServer/opencv2/stitching/stitcher.hpp
+/home/supreme/djk/myServer/myServer/opencv2/stitching/stitcher.hpp
 base/utility.h
-/home/supreme/myServer/myServer/base/utility.h
+/home/supreme/djk/myServer/myServer/base/utility.h
 unistd.h
 -
 cstring
 -
 
-/home/supreme/myServer/myServer/imageData.h
+/home/supreme/djk/myServer/myServer/imageData.h
 string
 -
 Channel.h
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 unistd.h
 -
 base/Buffer.h
-/home/supreme/myServer/myServer/base/Buffer.h
+/home/supreme/djk/myServer/myServer/base/Buffer.h
 
-/home/supreme/myServer/myServer/main.cc
+/home/supreme/djk/myServer/myServer/main.cc
 EventLoop.h
-/home/supreme/myServer/myServer/EventLoop.h
+/home/supreme/djk/myServer/myServer/EventLoop.h
 Channel.h
-/home/supreme/myServer/myServer/Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 TcpServer.h
-/home/supreme/myServer/myServer/TcpServer.h
+/home/supreme/djk/myServer/myServer/TcpServer.h
 iostream
 -
 
-/home/supreme/myServer/myServer/test.cc
+/home/supreme/djk/myServer/myServer/test.cc
 iostream
 -
 sys/stat.h
@@ -330,17 +364,17 @@ unistd.h
 sys/epoll.h
 -
 
-/home/supreme/myServer/myServer/timer.cc
+/home/supreme/djk/myServer/myServer/timer.cc
 timer.h
-/home/supreme/myServer/myServer/timer.h
+/home/supreme/djk/myServer/myServer/timer.h
 httpData.h
-/home/supreme/myServer/myServer/httpData.h
+/home/supreme/djk/myServer/myServer/httpData.h
 sys/time.h
 -
 iostream
 -
 
-/home/supreme/myServer/myServer/timer.h
+/home/supreme/djk/myServer/myServer/timer.h
 memory
 -
 queue

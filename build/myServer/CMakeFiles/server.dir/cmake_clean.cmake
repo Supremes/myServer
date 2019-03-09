@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/httpData.cc.o"
   "CMakeFiles/server.dir/imageData.cc.o"
   "CMakeFiles/server.dir/EventLoopThread.cc.o"
+  "CMakeFiles/server.dir/base/CountDownLatch.cpp.o"
   "CMakeFiles/server.dir/base/test_logger.cc.o"
   "CMakeFiles/server.dir/base/Thread.cc.o"
   "CMakeFiles/server.dir/base/logger.cc.o"

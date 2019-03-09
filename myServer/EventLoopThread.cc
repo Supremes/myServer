@@ -4,7 +4,7 @@ using namespace std;
 
 EventLoopThread::EventLoopThread():
 							loop_(NULL),
-							thread_(bind(&EventLoopThread::threadfunc, this)),
+							thread_(bind(&EventLoopThread::threadfunc, this), "EventLoopThread"),
 							mutex_(),
 							cond_(mutex_)
 {
@@ -22,11 +22,10 @@ EventLoopThread::~EventLoopThread()
 
 EventLoop* EventLoopThread::startLoop()
 {
-	assert(!thread_.isRunning());
-	//thread_.start();
-	thread_.run();
+	assert(!thread_.started());
+	thread_.start();
 	{
-		MutexLock lock(mutex_);
+		MutexLockGuard lock(mutex_);
 		while(loop_ == NULL)
 			cond_.wait();
 	}
@@ -40,7 +39,7 @@ void EventLoopThread::threadfunc()
 	//notify()条件变量，唤醒startLoop()
 	EventLoop loop;
 	{
-		MutexLock lock(mutex_);
+		MutexLockGuard lock(mutex_);
 		loop_ = &loop;
 		cond_.notifyOne();
 	}

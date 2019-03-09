@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/supreme/myServer
+CMAKE_SOURCE_DIR = /home/supreme/djk/myServer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/supreme/myServer/build
+CMAKE_BINARY_DIR = /home/supreme/djk/myServer/build
 
 # Include any dependencies generated for this target.
 include myServer/CMakeFiles/server.dir/depend.make
@@ -59,16 +59,16 @@ include myServer/CMakeFiles/server.dir/flags.make
 
 myServer/CMakeFiles/server.dir/main.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/main.cc.o: ../myServer/main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object myServer/CMakeFiles/server.dir/main.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/main.cc.o -c /home/supreme/myServer/myServer/main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object myServer/CMakeFiles/server.dir/main.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/main.cc.o -c /home/supreme/djk/myServer/myServer/main.cc
 
 myServer/CMakeFiles/server.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/main.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/main.cc > CMakeFiles/server.dir/main.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/main.cc > CMakeFiles/server.dir/main.cc.i
 
 myServer/CMakeFiles/server.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/main.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/main.cc -o CMakeFiles/server.dir/main.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/main.cc -o CMakeFiles/server.dir/main.cc.s
 
 myServer/CMakeFiles/server.dir/main.cc.o.requires:
 
@@ -83,16 +83,16 @@ myServer/CMakeFiles/server.dir/main.cc.o.provides.build: myServer/CMakeFiles/ser
 
 myServer/CMakeFiles/server.dir/test.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/test.cc.o: ../myServer/test.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object myServer/CMakeFiles/server.dir/test.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/test.cc.o -c /home/supreme/myServer/myServer/test.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object myServer/CMakeFiles/server.dir/test.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/test.cc.o -c /home/supreme/djk/myServer/myServer/test.cc
 
 myServer/CMakeFiles/server.dir/test.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/test.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/test.cc > CMakeFiles/server.dir/test.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/test.cc > CMakeFiles/server.dir/test.cc.i
 
 myServer/CMakeFiles/server.dir/test.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/test.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/test.cc -o CMakeFiles/server.dir/test.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/test.cc -o CMakeFiles/server.dir/test.cc.s
 
 myServer/CMakeFiles/server.dir/test.cc.o.requires:
 
@@ -107,16 +107,16 @@ myServer/CMakeFiles/server.dir/test.cc.o.provides.build: myServer/CMakeFiles/ser
 
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/EventLoopThreadPool.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/EventLoopThreadPool.cc.o -c /home/supreme/myServer/myServer/EventLoopThreadPool.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/EventLoopThreadPool.cc.o -c /home/supreme/djk/myServer/myServer/EventLoopThreadPool.cc
 
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/EventLoopThreadPool.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/EventLoopThreadPool.cc > CMakeFiles/server.dir/EventLoopThreadPool.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/EventLoopThreadPool.cc > CMakeFiles/server.dir/EventLoopThreadPool.cc.i
 
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/EventLoopThreadPool.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/EventLoopThreadPool.cc -o CMakeFiles/server.dir/EventLoopThreadPool.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/EventLoopThreadPool.cc -o CMakeFiles/server.dir/EventLoopThreadPool.cc.s
 
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o.requires:
 
@@ -131,16 +131,16 @@ myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o.provides.build: myServer
 
 myServer/CMakeFiles/server.dir/timer.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/timer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object myServer/CMakeFiles/server.dir/timer.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/timer.cc.o -c /home/supreme/myServer/myServer/timer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object myServer/CMakeFiles/server.dir/timer.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/timer.cc.o -c /home/supreme/djk/myServer/myServer/timer.cc
 
 myServer/CMakeFiles/server.dir/timer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/timer.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/timer.cc > CMakeFiles/server.dir/timer.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/timer.cc > CMakeFiles/server.dir/timer.cc.i
 
 myServer/CMakeFiles/server.dir/timer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/timer.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/timer.cc -o CMakeFiles/server.dir/timer.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/timer.cc -o CMakeFiles/server.dir/timer.cc.s
 
 myServer/CMakeFiles/server.dir/timer.cc.o.requires:
 
@@ -155,16 +155,16 @@ myServer/CMakeFiles/server.dir/timer.cc.o.provides.build: myServer/CMakeFiles/se
 
 myServer/CMakeFiles/server.dir/Channel.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/Channel.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object myServer/CMakeFiles/server.dir/Channel.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Channel.cc.o -c /home/supreme/myServer/myServer/Channel.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object myServer/CMakeFiles/server.dir/Channel.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Channel.cc.o -c /home/supreme/djk/myServer/myServer/Channel.cc
 
 myServer/CMakeFiles/server.dir/Channel.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/Channel.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/Channel.cc > CMakeFiles/server.dir/Channel.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/Channel.cc > CMakeFiles/server.dir/Channel.cc.i
 
 myServer/CMakeFiles/server.dir/Channel.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/Channel.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/Channel.cc -o CMakeFiles/server.dir/Channel.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/Channel.cc -o CMakeFiles/server.dir/Channel.cc.s
 
 myServer/CMakeFiles/server.dir/Channel.cc.o.requires:
 
@@ -179,16 +179,16 @@ myServer/CMakeFiles/server.dir/Channel.cc.o.provides.build: myServer/CMakeFiles/
 
 myServer/CMakeFiles/server.dir/TcpServer.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/TcpServer.cc.o: ../myServer/TcpServer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object myServer/CMakeFiles/server.dir/TcpServer.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/TcpServer.cc.o -c /home/supreme/myServer/myServer/TcpServer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object myServer/CMakeFiles/server.dir/TcpServer.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/TcpServer.cc.o -c /home/supreme/djk/myServer/myServer/TcpServer.cc
 
 myServer/CMakeFiles/server.dir/TcpServer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/TcpServer.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/TcpServer.cc > CMakeFiles/server.dir/TcpServer.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/TcpServer.cc > CMakeFiles/server.dir/TcpServer.cc.i
 
 myServer/CMakeFiles/server.dir/TcpServer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/TcpServer.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/TcpServer.cc -o CMakeFiles/server.dir/TcpServer.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/TcpServer.cc -o CMakeFiles/server.dir/TcpServer.cc.s
 
 myServer/CMakeFiles/server.dir/TcpServer.cc.o.requires:
 
@@ -203,16 +203,16 @@ myServer/CMakeFiles/server.dir/TcpServer.cc.o.provides.build: myServer/CMakeFile
 
 myServer/CMakeFiles/server.dir/EventLoop.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/EventLoop.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object myServer/CMakeFiles/server.dir/EventLoop.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/EventLoop.cc.o -c /home/supreme/myServer/myServer/EventLoop.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object myServer/CMakeFiles/server.dir/EventLoop.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/EventLoop.cc.o -c /home/supreme/djk/myServer/myServer/EventLoop.cc
 
 myServer/CMakeFiles/server.dir/EventLoop.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/EventLoop.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/EventLoop.cc > CMakeFiles/server.dir/EventLoop.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/EventLoop.cc > CMakeFiles/server.dir/EventLoop.cc.i
 
 myServer/CMakeFiles/server.dir/EventLoop.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/EventLoop.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/EventLoop.cc -o CMakeFiles/server.dir/EventLoop.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/EventLoop.cc -o CMakeFiles/server.dir/EventLoop.cc.s
 
 myServer/CMakeFiles/server.dir/EventLoop.cc.o.requires:
 
@@ -227,16 +227,16 @@ myServer/CMakeFiles/server.dir/EventLoop.cc.o.provides.build: myServer/CMakeFile
 
 myServer/CMakeFiles/server.dir/Epoller.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/Epoller.cc.o: ../myServer/Epoller.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object myServer/CMakeFiles/server.dir/Epoller.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Epoller.cc.o -c /home/supreme/myServer/myServer/Epoller.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object myServer/CMakeFiles/server.dir/Epoller.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/Epoller.cc.o -c /home/supreme/djk/myServer/myServer/Epoller.cc
 
 myServer/CMakeFiles/server.dir/Epoller.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/Epoller.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/Epoller.cc > CMakeFiles/server.dir/Epoller.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/Epoller.cc > CMakeFiles/server.dir/Epoller.cc.i
 
 myServer/CMakeFiles/server.dir/Epoller.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/Epoller.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/Epoller.cc -o CMakeFiles/server.dir/Epoller.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/Epoller.cc -o CMakeFiles/server.dir/Epoller.cc.s
 
 myServer/CMakeFiles/server.dir/Epoller.cc.o.requires:
 
@@ -251,16 +251,16 @@ myServer/CMakeFiles/server.dir/Epoller.cc.o.provides.build: myServer/CMakeFiles/
 
 myServer/CMakeFiles/server.dir/httpData.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/httpData.cc.o: ../myServer/httpData.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object myServer/CMakeFiles/server.dir/httpData.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/httpData.cc.o -c /home/supreme/myServer/myServer/httpData.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object myServer/CMakeFiles/server.dir/httpData.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/httpData.cc.o -c /home/supreme/djk/myServer/myServer/httpData.cc
 
 myServer/CMakeFiles/server.dir/httpData.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/httpData.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/httpData.cc > CMakeFiles/server.dir/httpData.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/httpData.cc > CMakeFiles/server.dir/httpData.cc.i
 
 myServer/CMakeFiles/server.dir/httpData.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/httpData.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/httpData.cc -o CMakeFiles/server.dir/httpData.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/httpData.cc -o CMakeFiles/server.dir/httpData.cc.s
 
 myServer/CMakeFiles/server.dir/httpData.cc.o.requires:
 
@@ -275,16 +275,16 @@ myServer/CMakeFiles/server.dir/httpData.cc.o.provides.build: myServer/CMakeFiles
 
 myServer/CMakeFiles/server.dir/imageData.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/imageData.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object myServer/CMakeFiles/server.dir/imageData.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/imageData.cc.o -c /home/supreme/myServer/myServer/imageData.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object myServer/CMakeFiles/server.dir/imageData.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/imageData.cc.o -c /home/supreme/djk/myServer/myServer/imageData.cc
 
 myServer/CMakeFiles/server.dir/imageData.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/imageData.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/imageData.cc > CMakeFiles/server.dir/imageData.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/imageData.cc > CMakeFiles/server.dir/imageData.cc.i
 
 myServer/CMakeFiles/server.dir/imageData.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/imageData.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/imageData.cc -o CMakeFiles/server.dir/imageData.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/imageData.cc -o CMakeFiles/server.dir/imageData.cc.s
 
 myServer/CMakeFiles/server.dir/imageData.cc.o.requires:
 
@@ -299,16 +299,16 @@ myServer/CMakeFiles/server.dir/imageData.cc.o.provides.build: myServer/CMakeFile
 
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/EventLoopThread.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object myServer/CMakeFiles/server.dir/EventLoopThread.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/EventLoopThread.cc.o -c /home/supreme/myServer/myServer/EventLoopThread.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object myServer/CMakeFiles/server.dir/EventLoopThread.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/EventLoopThread.cc.o -c /home/supreme/djk/myServer/myServer/EventLoopThread.cc
 
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/EventLoopThread.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/EventLoopThread.cc > CMakeFiles/server.dir/EventLoopThread.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/EventLoopThread.cc > CMakeFiles/server.dir/EventLoopThread.cc.i
 
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/EventLoopThread.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/EventLoopThread.cc -o CMakeFiles/server.dir/EventLoopThread.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/EventLoopThread.cc -o CMakeFiles/server.dir/EventLoopThread.cc.s
 
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o.requires:
 
@@ -321,18 +321,42 @@ myServer/CMakeFiles/server.dir/EventLoopThread.cc.o.provides: myServer/CMakeFile
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o.provides.build: myServer/CMakeFiles/server.dir/EventLoopThread.cc.o
 
 
+myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o: myServer/CMakeFiles/server.dir/flags.make
+myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o: ../myServer/base/CountDownLatch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/CountDownLatch.cpp.o -c /home/supreme/djk/myServer/myServer/base/CountDownLatch.cpp
+
+myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/CountDownLatch.cpp.i"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/base/CountDownLatch.cpp > CMakeFiles/server.dir/base/CountDownLatch.cpp.i
+
+myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/CountDownLatch.cpp.s"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/base/CountDownLatch.cpp -o CMakeFiles/server.dir/base/CountDownLatch.cpp.s
+
+myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.requires:
+
+.PHONY : myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.requires
+
+myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.provides: myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.requires
+	$(MAKE) -f myServer/CMakeFiles/server.dir/build.make myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.provides.build
+.PHONY : myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.provides
+
+myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.provides.build: myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o
+
+
 myServer/CMakeFiles/server.dir/base/test_logger.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/base/test_logger.cc.o: ../myServer/base/test_logger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object myServer/CMakeFiles/server.dir/base/test_logger.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/test_logger.cc.o -c /home/supreme/myServer/myServer/base/test_logger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object myServer/CMakeFiles/server.dir/base/test_logger.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/test_logger.cc.o -c /home/supreme/djk/myServer/myServer/base/test_logger.cc
 
 myServer/CMakeFiles/server.dir/base/test_logger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/test_logger.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/base/test_logger.cc > CMakeFiles/server.dir/base/test_logger.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/base/test_logger.cc > CMakeFiles/server.dir/base/test_logger.cc.i
 
 myServer/CMakeFiles/server.dir/base/test_logger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/test_logger.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/base/test_logger.cc -o CMakeFiles/server.dir/base/test_logger.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/base/test_logger.cc -o CMakeFiles/server.dir/base/test_logger.cc.s
 
 myServer/CMakeFiles/server.dir/base/test_logger.cc.o.requires:
 
@@ -347,16 +371,16 @@ myServer/CMakeFiles/server.dir/base/test_logger.cc.o.provides.build: myServer/CM
 
 myServer/CMakeFiles/server.dir/base/Thread.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/base/Thread.cc.o: ../myServer/base/Thread.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object myServer/CMakeFiles/server.dir/base/Thread.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/Thread.cc.o -c /home/supreme/myServer/myServer/base/Thread.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object myServer/CMakeFiles/server.dir/base/Thread.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/Thread.cc.o -c /home/supreme/djk/myServer/myServer/base/Thread.cc
 
 myServer/CMakeFiles/server.dir/base/Thread.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/Thread.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/base/Thread.cc > CMakeFiles/server.dir/base/Thread.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/base/Thread.cc > CMakeFiles/server.dir/base/Thread.cc.i
 
 myServer/CMakeFiles/server.dir/base/Thread.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/Thread.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/base/Thread.cc -o CMakeFiles/server.dir/base/Thread.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/base/Thread.cc -o CMakeFiles/server.dir/base/Thread.cc.s
 
 myServer/CMakeFiles/server.dir/base/Thread.cc.o.requires:
 
@@ -371,16 +395,16 @@ myServer/CMakeFiles/server.dir/base/Thread.cc.o.provides.build: myServer/CMakeFi
 
 myServer/CMakeFiles/server.dir/base/logger.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/base/logger.cc.o: ../myServer/base/logger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object myServer/CMakeFiles/server.dir/base/logger.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/logger.cc.o -c /home/supreme/myServer/myServer/base/logger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object myServer/CMakeFiles/server.dir/base/logger.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/logger.cc.o -c /home/supreme/djk/myServer/myServer/base/logger.cc
 
 myServer/CMakeFiles/server.dir/base/logger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/logger.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/base/logger.cc > CMakeFiles/server.dir/base/logger.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/base/logger.cc > CMakeFiles/server.dir/base/logger.cc.i
 
 myServer/CMakeFiles/server.dir/base/logger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/logger.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/base/logger.cc -o CMakeFiles/server.dir/base/logger.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/base/logger.cc -o CMakeFiles/server.dir/base/logger.cc.s
 
 myServer/CMakeFiles/server.dir/base/logger.cc.o.requires:
 
@@ -395,16 +419,16 @@ myServer/CMakeFiles/server.dir/base/logger.cc.o.provides.build: myServer/CMakeFi
 
 myServer/CMakeFiles/server.dir/base/Condition.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/base/Condition.cc.o: ../myServer/base/Condition.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object myServer/CMakeFiles/server.dir/base/Condition.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/Condition.cc.o -c /home/supreme/myServer/myServer/base/Condition.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object myServer/CMakeFiles/server.dir/base/Condition.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/Condition.cc.o -c /home/supreme/djk/myServer/myServer/base/Condition.cc
 
 myServer/CMakeFiles/server.dir/base/Condition.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/Condition.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/base/Condition.cc > CMakeFiles/server.dir/base/Condition.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/base/Condition.cc > CMakeFiles/server.dir/base/Condition.cc.i
 
 myServer/CMakeFiles/server.dir/base/Condition.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/Condition.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/base/Condition.cc -o CMakeFiles/server.dir/base/Condition.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/base/Condition.cc -o CMakeFiles/server.dir/base/Condition.cc.s
 
 myServer/CMakeFiles/server.dir/base/Condition.cc.o.requires:
 
@@ -419,16 +443,16 @@ myServer/CMakeFiles/server.dir/base/Condition.cc.o.provides.build: myServer/CMak
 
 myServer/CMakeFiles/server.dir/base/utility.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/base/utility.cc.o: ../myServer/base/utility.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object myServer/CMakeFiles/server.dir/base/utility.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/utility.cc.o -c /home/supreme/myServer/myServer/base/utility.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object myServer/CMakeFiles/server.dir/base/utility.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/utility.cc.o -c /home/supreme/djk/myServer/myServer/base/utility.cc
 
 myServer/CMakeFiles/server.dir/base/utility.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/utility.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/base/utility.cc > CMakeFiles/server.dir/base/utility.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/base/utility.cc > CMakeFiles/server.dir/base/utility.cc.i
 
 myServer/CMakeFiles/server.dir/base/utility.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/utility.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/base/utility.cc -o CMakeFiles/server.dir/base/utility.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/base/utility.cc -o CMakeFiles/server.dir/base/utility.cc.s
 
 myServer/CMakeFiles/server.dir/base/utility.cc.o.requires:
 
@@ -443,16 +467,16 @@ myServer/CMakeFiles/server.dir/base/utility.cc.o.provides.build: myServer/CMakeF
 
 myServer/CMakeFiles/server.dir/base/Buffer.cc.o: myServer/CMakeFiles/server.dir/flags.make
 myServer/CMakeFiles/server.dir/base/Buffer.cc.o: ../myServer/base/Buffer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object myServer/CMakeFiles/server.dir/base/Buffer.cc.o"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/Buffer.cc.o -c /home/supreme/myServer/myServer/base/Buffer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object myServer/CMakeFiles/server.dir/base/Buffer.cc.o"
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/base/Buffer.cc.o -c /home/supreme/djk/myServer/myServer/base/Buffer.cc
 
 myServer/CMakeFiles/server.dir/base/Buffer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/base/Buffer.cc.i"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/myServer/myServer/base/Buffer.cc > CMakeFiles/server.dir/base/Buffer.cc.i
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/supreme/djk/myServer/myServer/base/Buffer.cc > CMakeFiles/server.dir/base/Buffer.cc.i
 
 myServer/CMakeFiles/server.dir/base/Buffer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/base/Buffer.cc.s"
-	cd /home/supreme/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/myServer/myServer/base/Buffer.cc -o CMakeFiles/server.dir/base/Buffer.cc.s
+	cd /home/supreme/djk/myServer/build/myServer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/supreme/djk/myServer/myServer/base/Buffer.cc -o CMakeFiles/server.dir/base/Buffer.cc.s
 
 myServer/CMakeFiles/server.dir/base/Buffer.cc.o.requires:
 
@@ -478,6 +502,7 @@ server_OBJECTS = \
 "CMakeFiles/server.dir/httpData.cc.o" \
 "CMakeFiles/server.dir/imageData.cc.o" \
 "CMakeFiles/server.dir/EventLoopThread.cc.o" \
+"CMakeFiles/server.dir/base/CountDownLatch.cpp.o" \
 "CMakeFiles/server.dir/base/test_logger.cc.o" \
 "CMakeFiles/server.dir/base/Thread.cc.o" \
 "CMakeFiles/server.dir/base/logger.cc.o" \
@@ -499,6 +524,7 @@ myServer/server: myServer/CMakeFiles/server.dir/Epoller.cc.o
 myServer/server: myServer/CMakeFiles/server.dir/httpData.cc.o
 myServer/server: myServer/CMakeFiles/server.dir/imageData.cc.o
 myServer/server: myServer/CMakeFiles/server.dir/EventLoopThread.cc.o
+myServer/server: myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o
 myServer/server: myServer/CMakeFiles/server.dir/base/test_logger.cc.o
 myServer/server: myServer/CMakeFiles/server.dir/base/Thread.cc.o
 myServer/server: myServer/CMakeFiles/server.dir/base/logger.cc.o
@@ -551,8 +577,8 @@ myServer/server: /usr/local/lib/libopencv_objdetect.so.3.4.0
 myServer/server: /usr/local/lib/libopencv_imgproc.so.3.4.0
 myServer/server: /usr/local/lib/libopencv_core.so.3.4.0
 myServer/server: myServer/CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/supreme/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable server"
-	cd /home/supreme/myServer/build/myServer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/supreme/djk/myServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable server"
+	cd /home/supreme/djk/myServer/build/myServer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 myServer/CMakeFiles/server.dir/build: myServer/server
@@ -570,6 +596,7 @@ myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/Epoller.
 myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/httpData.cc.o.requires
 myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/imageData.cc.o.requires
 myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/EventLoopThread.cc.o.requires
+myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/base/CountDownLatch.cpp.o.requires
 myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/base/test_logger.cc.o.requires
 myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/base/Thread.cc.o.requires
 myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/base/logger.cc.o.requires
@@ -580,10 +607,10 @@ myServer/CMakeFiles/server.dir/requires: myServer/CMakeFiles/server.dir/base/Buf
 .PHONY : myServer/CMakeFiles/server.dir/requires
 
 myServer/CMakeFiles/server.dir/clean:
-	cd /home/supreme/myServer/build/myServer && $(CMAKE_COMMAND) -P CMakeFiles/server.dir/cmake_clean.cmake
+	cd /home/supreme/djk/myServer/build/myServer && $(CMAKE_COMMAND) -P CMakeFiles/server.dir/cmake_clean.cmake
 .PHONY : myServer/CMakeFiles/server.dir/clean
 
 myServer/CMakeFiles/server.dir/depend:
-	cd /home/supreme/myServer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/supreme/myServer /home/supreme/myServer/myServer /home/supreme/myServer/build /home/supreme/myServer/build/myServer /home/supreme/myServer/build/myServer/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/supreme/djk/myServer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/supreme/djk/myServer /home/supreme/djk/myServer/myServer /home/supreme/djk/myServer/build /home/supreme/djk/myServer/build/myServer /home/supreme/djk/myServer/build/myServer/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : myServer/CMakeFiles/server.dir/depend
 

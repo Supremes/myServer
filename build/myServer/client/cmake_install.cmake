@@ -1,4 +1,4 @@
-# Install script for directory: /home/supreme/myServer/myServer/client
+# Install script for directory: /home/supreme/djk/myServer/myServer/client
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

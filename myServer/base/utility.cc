@@ -153,10 +153,10 @@ ssize_t writen(int fd, string &outBuffer){
 	return resNum;
 }
 
-pid_t gettid()
-{
-	return static_cast<pid_t>(syscall(SYS_gettid));
-}
+// pid_t gettid()
+// {
+// 	return static_cast<pid_t>(syscall(SYS_gettid));
+// }
 void splitString(const string &s, const string &p,
                 vector<string> &result)
 {

@@ -7,12 +7,6 @@
 
 using namespace std;
 
-enum HttpVersion
-{
-	HTTP_1_0 = 1,
-	HTTP_1_1
-};
-
 enum HttpMethod
 {
 	HTTP_GET = 1,
@@ -56,7 +50,7 @@ struct HttpRequestBody{
 class httpData: public enable_shared_from_this<httpData>{
 public:
 	httpData(EventLoop *loop, int connfd);
-	~httpData(){ close(connfd_); }
+	~httpData(){ close(connfd_); cout << "close" << endl;}
 	
 	void seperateTimer();
 
@@ -96,9 +90,7 @@ private:
 
 	ConnectionState connectionState_;
 	ParseState state_;
-	//长连接的判断？
-	bool keepAlive_;
-	//初始化Channel需要用到EventLoop
+
 	EventLoop* loop_;
 	shared_ptr<Channel> spChannel;
 	//httpData与Timer之间存在循环引用,可能导致内存泄漏

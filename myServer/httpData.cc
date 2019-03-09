@@ -7,10 +7,10 @@ using namespace std;
 httpData::httpData(EventLoop* loop, int connfd):
 			connfd_(connfd),
 			error_(false),
-			keepAlive_(false),
+			connectionState_(HTTP_CONNECTED),
+			state_(PARSE_LINE),
 			loop_(loop),
-			spChannel(new Channel(loop_, connfd_)),
-			state_(PARSE_LINE)
+			spChannel(new Channel(loop_, connfd_))
 
 {
 
@@ -27,7 +27,6 @@ void httpData::seperateTimer()
 void httpData::handleClose()
 {
 	connectionState_ = HTTP_DISCONNECTED;
-	
 	shared_ptr<httpData> guard(shared_from_this());
 	loop_->removeFromPoller(spChannel);
 	seperateTimer();
@@ -35,8 +34,6 @@ void httpData::handleClose()
 
 void httpData::handleRead()
 {
-	//uint32_t &events = spChannel->getEvents();
-	//cout << "httpData::handleRead()\n";
 	do{
 		bool zero = false;
 		int numOfRead = readn(connfd_, inBuffer_, zero);
@@ -84,19 +81,14 @@ void httpData::handleWrite()
 			events_temp = 0;
 			error_ = true;
 		}
-		//ET边缘触发需要设置,不然可能写事件可能没法及时触发
-		// if(outBuffer_ > 0)
-		// 	events_temp |= EPOLLOUT;
+
 	}
 
 }
 void httpData::handleNewConn()
 {
-	//int events = EPOLLIN | EPOLLOUT;
 	spChannel->setEvents(EPOLLIN | EPOLLOUT);
-	//cout << "events = " << events << endl;
 	loop_->addToPoller(spChannel, 0);
-	connectionState_ = HTTP_CONNECTED;
 }
 
 void httpData::doError(string error)
@@ -190,21 +182,7 @@ bool httpData::doHttpData()
             doError("404");
 			return false;  
         }
-		//文件映射
-        void *mmapRet = mmap(NULL, fileInfo.st_size, PROT_READ, MAP_PRIVATE, fileFd, 0);
-		close(fileFd);
-        if(mmapRet == (void *)-1)
-		{
-			munmap(mmapRet, fileInfo.st_size);
-			outBuffer_.clear();
-			//doError(fd_, 404, "Not Found!");
-            doError("404");
-			return false;
-		}
-        char *src_addr = static_cast<char*>(mmapRet);
-		//读取映射段
-        outBuffer_ += string(src_addr, src_addr + fileInfo.st_size) + "\n";
-        munmap(mmapRet, fileInfo.st_size);
+
         return true;
 
 	}
@@ -215,9 +193,3 @@ bool httpData::doHttpData()
 	else
 		return false;
 }
-
-// void httpData::newEvent()
-// {
-// 	spChannel->setEvents(EPOLLIN);
-// 	loop_->addToPoller(spChannel, 0);
-// }

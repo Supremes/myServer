@@ -23,8 +23,8 @@ public:
 		assert(isLoopInThread());
 	}
 	void loop();
-	void runInLoop(const Functor&);
-	void queueInLoop(const Functor&);
+	void runInLoop(Functor&&);
+	void queueInLoop(Functor&&);
 
 	void addToPoller(shared_ptr<Channel> channel, int timeout = 0)
 	{

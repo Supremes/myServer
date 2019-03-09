@@ -50,6 +50,7 @@ void Channel::handleError()
 
 void Channel::handleEvents()
 {
+	events_ = 0;
 	if(revents_ & EPOLLIN){
 		handleRead();
 	}
@@ -60,7 +61,6 @@ void Channel::handleEvents()
 		handleError();
 	}
 
-	//handleConn();
 }
 
 void Channel::remove()

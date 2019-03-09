@@ -15,7 +15,6 @@ public:
 	void handleNewConnection();
 	void handleThisConnection()
 	{
-		cout << "server::handleThisConnection..." << endl;
 		loop_->updatePoller(acceptChannel_);
 	}
 	void start();

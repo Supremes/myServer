@@ -35,11 +35,6 @@ vector<spChannel> Epoller::poll()
 				int fd = eventList[i].data.fd;
 				spChannel ch_cur = channelList[fd];
 				if(ch_cur){
-					// if(eventList[i].events & EPOLLIN)
-					// 	cout << "可读事件" << endl;
-					// //为什么一直有可写事件呢?
-					// if(eventList[i].events & EPOLLOUT)
-					// 	cout << "可写事件" << endl;
 					ch_cur->setRevents(eventList[i].events);
 					ch_cur->setEvents(0);
 					req_Channel.push_back(ch_cur);
