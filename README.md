@@ -29,7 +29,6 @@
 - #### Webbench压力测试
 - 线程数为４
 1.  短连接测试，测试时长为１秒
-
 ![shortRequests.png](https://upload-images.jianshu.io/upload_images/569253-fd7f8a42a6c7f183.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
