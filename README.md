@@ -27,11 +27,5 @@
   在项目中的类之间的嵌套使用中，使用了__智能指针__做到线程安全的对象回调和析构
 
 - #### Webbench压力测试
-- 线程数为４
-1.  对服务器发起了并发量为1000的请求，测试时长为１秒
-![](https://upload-images.jianshu.io/upload_images/569253-ae08173fb8818dcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
-2.  对服务器发起了并发量为1000的请求,　测试时长为１０秒
-![](https://upload-images.jianshu.io/upload_images/569253-e90fad7c19b67cb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
