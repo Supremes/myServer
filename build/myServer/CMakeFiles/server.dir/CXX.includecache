@@ -39,8 +39,6 @@ iostream
 -
 unistd.h
 -
-timer.h
-/home/supreme/djk/myServer/myServer/timer.h
 
 /home/supreme/djk/myServer/myServer/Epoller.h
 Channel.h
@@ -63,16 +61,16 @@ unistd.h
 -
 
 /home/supreme/djk/myServer/myServer/EventLoop.h
-Epoller.h
-/home/supreme/djk/myServer/myServer/Epoller.h
-Channel.h
-/home/supreme/djk/myServer/myServer/Channel.h
 base/MutexLock.h
 /home/supreme/djk/myServer/myServer/base/MutexLock.h
 base/CurrentThread.h
 /home/supreme/djk/myServer/myServer/base/CurrentThread.h
 base/Thread.h
 /home/supreme/djk/myServer/myServer/base/Thread.h
+Epoller.h
+/home/supreme/djk/myServer/myServer/Epoller.h
+Channel.h
+/home/supreme/djk/myServer/myServer/Channel.h
 vector
 -
 memory

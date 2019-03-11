@@ -41,7 +41,7 @@ EventLoop::~EventLoop()
 	close(wakeupfd_);
 	t_loopInThisThread = NULL;
 }
-
+//mind
 void EventLoop::handleConn()
 {	
 	updatePoller(wakeupChannel_);

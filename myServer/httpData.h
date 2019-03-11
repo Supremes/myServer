@@ -63,7 +63,6 @@ public:
 
 	//根据httpData中的请求数据进行响应
 	bool doHttpData();
-
 	void handleNewConn();
 
 	void linkTimer(shared_ptr<timerNode> mtimer)

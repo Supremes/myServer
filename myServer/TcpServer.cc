@@ -26,7 +26,7 @@ void server::start()
 	pool_->start();
 	acceptChannel_->setEvents(EPOLLIN);
 	acceptChannel_->setReadResponse(bind(&server::handleNewConnection, this));
-	acceptChannel_->setConnResponse(bind(&server::handleThisConnection, this));
+	//acceptChannel_->setConnResponse(bind(&server::handleThisConnection, this));
 
 	loop_->addToPoller(acceptChannel_, 0);
 }
@@ -52,11 +52,11 @@ void server::handleNewConnection()
 		cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
 
 		// 限制服务器的最大并发连接数
-        // if (accept_fd >= MAXFDS)
-        // {
-        //     close(accept_fd);
-        //     continue;
-        // }
+        if (accept_fd >= MAXFDS)
+        {
+            close(accept_fd);
+            continue;
+        }
 		
 		if(setSocketNonBlocking(accept_fd) < 0){
 			perror("set non block failed!");

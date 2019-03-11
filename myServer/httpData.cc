@@ -21,15 +21,24 @@ httpData::httpData(EventLoop* loop, int connfd):
 
 void httpData::seperateTimer()
 {
-	shared_ptr<timerNode> this_timer(timer_.lock());
-	this_timer->clearRequests();
+	if(timer_.lock()){
+		shared_ptr<timerNode> this_timer(timer_.lock());
+		this_timer->clearRequests();
+		timer_.reset();
+	}
+
 }
+// void httpData::handleConn()
+// {
+// 	seperateTimer();
+// 	if(error_)
+// 		loop_->runInLoop(bind(&httpData::handleClose, shared_from_this()));
+// }
 void httpData::handleClose()
 {
 	connectionState_ = HTTP_DISCONNECTED;
 	shared_ptr<httpData> guard(shared_from_this());
 	loop_->removeFromPoller(spChannel);
-	seperateTimer();
 }
 
 void httpData::handleRead()
@@ -37,6 +46,7 @@ void httpData::handleRead()
 	do{
 		bool zero = false;
 		int numOfRead = readn(connfd_, inBuffer_, zero);
+		//cout << "inBuffer = " << inBuffer_ << endl;
 		if(numOfRead < 0){
 			error_ = true;
 			//待编写
@@ -50,9 +60,11 @@ void httpData::handleRead()
 				break; 
 		}
 		int index = inBuffer_.find_first_of("\r", 0);
-		vector<string> parseString;
-		parseString.push_back(inBuffer_.substr(0, index));
-		parseString.push_back(inBuffer_.substr(index + 2, inBuffer_.size() - index - 2));
+		vector<string> parseString(2);
+		if(index != string::npos)
+			parseString.push_back(inBuffer_.substr(0, index));
+		if(index + 2 < inBuffer_.size())
+			parseString.push_back(inBuffer_.substr(index + 2, inBuffer_.size() - index - 2));
 		//解析http字段的条件判断
 		if(state_ == PARSE_LINE){
 			if(parseLine(parseString[0]))
@@ -79,7 +91,7 @@ void httpData::handleWrite()
 		if(writen(connfd_, outBuffer_) < 0){
 			perror("writen error");
 			events_temp = 0;
-			error_ = true;
+			error_ = true; 
 		}
 
 	}
@@ -88,7 +100,7 @@ void httpData::handleWrite()
 void httpData::handleNewConn()
 {
 	spChannel->setEvents(EPOLLIN | EPOLLOUT);
-	loop_->addToPoller(spChannel, 0);
+	loop_->addToPoller(spChannel, 1);
 }
 
 void httpData::doError(string error)
@@ -143,7 +155,7 @@ bool httpData::parseHeader(string &data)
 
 	int pos = inBuffer_.find("\n");
 	inBuffer_.substr(pos + 1, inBuffer_.size() - pos - 1);
-
+	
 	return true;
 }
 
@@ -152,7 +164,7 @@ bool httpData::doHttpData()
 {
     //解析请求行
 	if(line_.method == "GET" || line_.method == "HEAD"){
-        
+        //cout << "handle Headers..." << endl;
         //解析请求头
 		if(head_.Connection.size())
         	outBuffer_ += "Connection : " + head_.Connection + "\r\n";

@@ -28,6 +28,7 @@ void timerNode::update(int timeout)
 
 void timerNode::clearRequests()
 {
+	
 	spHttpData.reset();
 	this->setDeleted();
 }
@@ -49,15 +50,15 @@ void timerNodeManager::addTimer(shared_ptr<httpData> spHttpData, int timeout)
 {
 	spTimerNode temp(new timerNode(spHttpData, timeout));
 	timerNodeQueue.push(temp);
-	//这一步着重看一下
 	spHttpData->linkTimer(temp);
+	
 }
 
 void timerNodeManager::handleExpiredEvent()
 {
 	while(!timerNodeQueue.empty()){
 		spTimerNode tNode = timerNodeQueue.top();
-		cout << "handleExpiredEvent..." << endl;
+		//cout << "handleExpiredEvent..." << endl;
 		if(tNode->isDeleted() == true)
 			timerNodeQueue.pop();
 		else if(tNode->isValid() == false)

@@ -69,7 +69,7 @@ int main(int argc, char const *argv[])
             cout << "send data = " << send;
             cout << "sockfd = " << sockfd[i] << endl;
             write(sockfd[i], send.c_str(), send.size());
-            sleep(1);
+            //sleep(1);
             while((numOfRead = read(sockfd[i], recv, 100)) == -1);
             cout << "numOfRead = " << numOfRead << endl;
             cout << recv << endl;

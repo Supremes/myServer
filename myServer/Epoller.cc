@@ -3,7 +3,6 @@
 #include <assert.h>
 #include <iostream>
 #include <unistd.h>
-#include "timer.h"
 using namespace std;
 
 const int EPOLLWAIT_TIME = 10000;

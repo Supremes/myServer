@@ -30,4 +30,5 @@ private:
 	int threadnum_;
 	MutexLock mutex_;
 	ConnectionMap connections_;
+	static const int MAXFDS = 100000;
 };
