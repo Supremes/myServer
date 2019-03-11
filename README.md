@@ -1,5 +1,5 @@
 ### 项目简介：
- - 基于Reactor模型的同步非阻塞服务器,使用了多线程，通过创建固定大小的线程池来控制并发数量，并且得以提高并发性能。
+ - 基于Reactor并发模型开发的非阻塞IO服务器，采用了one loop per thread + 线程池的多线程编程模型，解析了get、head静态请求，支持优雅关闭连接。
 
 - #### 使用了epoll来实现IO复用，并使用了水平触发模式
  1. select在高并发场景下效率过低,因为select是监听所有的待监听连接数，若待监听连接数远大于活跃的连接数，效率会显得额外低 。
@@ -27,5 +27,13 @@
   在项目中的类之间的嵌套使用中，使用了__智能指针__做到线程安全的对象回调和析构
 
 - #### Webbench压力测试
+- 线程数为４
+1.  短连接测试，测试时长为１秒
+
+![shortRequests.png](https://upload-images.jianshu.io/upload_images/569253-fd7f8a42a6c7f183.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+2.  长连接测试，测试时长为１秒
+![longRequests.png](https://upload-images.jianshu.io/upload_images/569253-88d9c214169b5624.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
