@@ -1,8 +1,11 @@
 #include "httpData.h"
 #include "timer.h"
+#include "Channel.h"
+#include "EventLoop.h"
+
 
 using namespace std;
-
+const int DEFAULT_EXPIRED_TIME = 2000;//ms
 //初始化列表的成员初始化顺序是按照变量的声明顺序的
 httpData::httpData(EventLoop* loop, int connfd):
 			connfd_(connfd),
@@ -16,6 +19,7 @@ httpData::httpData(EventLoop* loop, int connfd):
 
 	spChannel->setReadResponse(bind(&httpData::handleRead, this));
 	spChannel->setWriteResponse(bind(&httpData::handleWrite, this));
+	spChannel->setConnResponse(bind(&httpData::handleConn, this));
 }
 
 
@@ -25,32 +29,36 @@ void httpData::seperateTimer()
 		shared_ptr<timerNode> this_timer(timer_.lock());
 		this_timer->clearRequests();
 		timer_.reset();
+		cout << "ok" << endl;
 	}
 
 }
-// void httpData::handleConn()
-// {
-// 	seperateTimer();
-// 	if(error_)
-// 		loop_->runInLoop(bind(&httpData::handleClose, shared_from_this()));
-// }
-void httpData::handleClose()
+void httpData::handleConn()
+{
+	seperateTimer();
+	//if(error_)
+		loop_->queueInLoop(bind(&httpData::handleClose, shared_from_this()));
+}
+void httpData::handleClose()     
 {
 	connectionState_ = HTTP_DISCONNECTED;
 	shared_ptr<httpData> guard(shared_from_this());
 	loop_->removeFromPoller(spChannel);
 }
-
+void httpData::handleNewConn()
+{
+	spChannel->setEvents(EPOLLIN | EPOLLOUT);
+	loop_->addToPoller(spChannel, DEFAULT_EXPIRED_TIME);
+	cout << "add success" << endl;
+}
 void httpData::handleRead()
 {
 	do{
 		bool zero = false;
 		int numOfRead = readn(connfd_, inBuffer_, zero);
-		//cout << "inBuffer = " << inBuffer_ << endl;
 		if(numOfRead < 0){
 			error_ = true;
-			//待编写
-			doError();
+			//doError();
 		}else if(zero){
 			//有请求但是读不到数据，可能是来自网络的数据未到达或者对方端口已关闭或Request Aborted
 			//统一按照对端已经关闭处理
@@ -60,7 +68,7 @@ void httpData::handleRead()
 				break; 
 		}
 		int index = inBuffer_.find_first_of("\r", 0);
-		vector<string> parseString(2);
+		vector<string> parseString;
 		if(index != string::npos)
 			parseString.push_back(inBuffer_.substr(0, index));
 		if(index + 2 < inBuffer_.size())
@@ -69,19 +77,34 @@ void httpData::handleRead()
 		if(state_ == PARSE_LINE){
 			if(parseLine(parseString[0]))
 				state_ = PARSE_HEAD;
+			else
+				error_ =  true;
 		}
 		if(state_ == PARSE_HEAD){
 			if(parseHeader(parseString[1]))
 				state_ = PARSE_BODY;
+			else
+				error_ = true;
 		}
 		if(state_ == PARSE_BODY){
 			//根据httpData中的请求数据进行响应
-			if(!doHttpData()){
-				doError();
-			}
+			if(doHttpData())
+				state_ = PARSE_FIN;
+			else
+				error_ = true;
 		}
-
 	}while(false);
+	
+	if(!error_ && state_ == PARSE_FIN){
+		state_ = PARSE_LINE;
+		inBuffer_.clear();
+		// if (timer_.lock())
+    	// {
+		// 	shared_ptr<timerNode> my_timer(timer_.lock());
+		// 	my_timer->clearRequests();
+		// 	my_timer.reset();
+    	// }
+	}
 
 }
 void httpData::handleWrite()
@@ -97,11 +120,7 @@ void httpData::handleWrite()
 	}
 
 }
-void httpData::handleNewConn()
-{
-	spChannel->setEvents(EPOLLIN | EPOLLOUT);
-	loop_->addToPoller(spChannel, 1);
-}
+
 
 void httpData::doError(string error)
 {
@@ -167,15 +186,15 @@ bool httpData::doHttpData()
         //cout << "handle Headers..." << endl;
         //解析请求头
 		if(head_.Connection.size())
-        	outBuffer_ += "Connection : " + head_.Connection + "\r\n";
+        	outBuffer_ = "Connection : " + head_.Connection + "\r\n";
 		if(head_.Host.size())
-        	outBuffer_ += "HOST" + head_.Host + "\r\n";
+        	outBuffer_ = "HOST" + head_.Host + "\r\n";
 		if(head_.Agent.size())
-        	outBuffer_ += "User-Agent" + head_.Agent + "\r\n";
+        	outBuffer_ = "User-Agent" + head_.Agent + "\r\n";
 		if(head_.contentType.size())
-        	outBuffer_ += "Content-Type: " + head_.contentType + "\r\n";
+        	outBuffer_ = "Content-Type: " + head_.contentType + "\r\n";
 		if(head_.Date.size())
-			outBuffer_ += "Date: " + head_.Date + "\r\n";
+			outBuffer_ = "Date: " + head_.Date + "\r\n";
         
         string fileName = line_.url;
         struct stat fileInfo;
@@ -186,7 +205,7 @@ bool httpData::doHttpData()
 
         if(line_.method == "HEAD")
             return true;
-        //解析请求体
+        //解析url
         int fileFd = open(fileName.c_str(), O_RDONLY);
         if(fileFd < 0){
 			outBuffer_.clear();
@@ -199,7 +218,7 @@ bool httpData::doHttpData()
 
 	}
     else if(line_.method == "POST"){
-		outBuffer_ += "This method comes with 'POST'";
+		outBuffer_ = "This method comes with 'POST'";
 		return true;
 	}
 	else

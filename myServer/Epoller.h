@@ -1,5 +1,7 @@
 #pragma once
 #include "Channel.h"
+#include "httpData.h"
+#include "timer.h"
 #include <memory>
 #include <vector>
 #include <map>
@@ -27,7 +29,7 @@ private:
 	//用于在poll循环当中进行channel验证（epoll成员函数添加的和epoll_wait所监听到的）
 	map<int, spChannel > channelList;
 	//保存了所有一次epoll_wait()返回的活动httpData(fd封装在httpData类中)列表
-	//map<int, spChannel > dataList;
+	map<int, shared_ptr<httpData> > dataList;
 	timerNodeManager *timerNodeManager_;
 
 };

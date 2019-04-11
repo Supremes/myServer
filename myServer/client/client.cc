@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
     requestHead.push_back("Date: 2019-02-26\r\n");
     requestHead.push_back("Accept-Language: En,Zh\r\n");
     int numOfRead = 0;
-    char recv[100];
+    char recv[2048];
     int i = 0;
     while(i < 5){
         if(connect(sockfd[i], (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == 0){
@@ -70,10 +70,9 @@ int main(int argc, char const *argv[])
             cout << "sockfd = " << sockfd[i] << endl;
             write(sockfd[i], send.c_str(), send.size());
             //sleep(1);
-            while((numOfRead = read(sockfd[i], recv, 100)) == -1);
+            numOfRead = read(sockfd[i], recv, 2048);
             cout << "numOfRead = " << numOfRead << endl;
             cout << recv << endl;
-            //为什么服务器端依然保持该连接???,断开失败
             close(sockfd[i]);
         }
         i++;

@@ -1,6 +1,7 @@
 #include "Epoller.h"
-#include "timer.h"
+#include "base/utility.h"
 #include <assert.h>
+#include <string.h>
 #include <iostream>
 #include <unistd.h>
 using namespace std;
@@ -29,7 +30,6 @@ vector<spChannel> Epoller::poll()
 		if(event_count < 0)
 			perror("epoll_wait() error");
 		if(event_count > 0){
-			//cout << "epoll_wait's event_count = " << event_count << endl;
 			for(int i = 0; i < event_count; i++){
 				int fd = eventList[i].data.fd;
 				spChannel ch_cur = channelList[fd];
@@ -51,58 +51,65 @@ vector<spChannel> Epoller::poll()
 void Epoller::epoll_add(spChannel channel, int timeout)
 {
 	int fd = channel->getFd();
-	//cout << "epoll_add fd: " << fd << endl;
 	if (timeout > 0)
 	{
 		timerNodeManager_->addTimer(channel->getHolder(), timeout);
-		//dataList.insert(make_pair(fd, channel->getHolder()));
+		dataList[fd] = channel->getHolder();
 	}
 	struct epoll_event events_;
+	//bzero(&events_, sizeof events_);
+	//events_.data.ptr = channel->
 	events_.data.fd = fd;
 	events_.events = channel->getEvents();
-	//为什么需要该操作
-	//channel->EqualAndUpdateLastEvents();
+
 	channelList[fd] = channel;
 	if(epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &events_) < 0)
 	{
 		perror("epoll_ctl error");
-		channelList.find(fd)->second.reset();
+		channelList[fd].reset();
 	}
 }
 
 void Epoller::epoll_mod(spChannel channel, int timeout)
 {
 	int fd = channel->getFd();
+	assert(channelList.find(fd) != channelList.end());
+    assert(channelList[fd] == channel);
+
 	if(timeout > 0)
 	{
 		timerNodeManager_->addTimer(channel->getHolder(), timeout);
 	}
 	struct epoll_event events_;
+	bzero(&events_, sizeof events_);
 	events_.data.fd = fd;
 	events_.events = channel->getEvents();
 
 	if (epoll_ctl(epollfd_, EPOLL_CTL_MOD, fd, &events_) < 0)
 	{
 		perror("epoll_ctl error");
-		channelList.find(fd)->second.reset();
+		channelList[fd].reset();
 	}
 }
 
 void Epoller::epoll_del(spChannel channel)
 {
 	int fd = channel->getFd();
-	struct epoll_event events_;
-	events_.data.fd = fd;
-	events_.events = channel->getLastEvents();
+	assert(channelList.find(fd) != channelList.end());
+    assert(channelList[fd] == channel);
 
+	struct epoll_event events_;
+	bzero(&events_, sizeof events_);
+	events_.data.fd = fd;
+	events_.events = channel->getEvents();
+	
 	if(epoll_ctl(epollfd_, EPOLL_CTL_DEL, fd, &events_) < 0)
 	{
 		perror("epoll del failed!");
 	}
-	//dataList.find(fd)->second.reset();
-	channelList.find(fd)->second.reset();
-	close(fd);
-
+	channelList[fd].reset();
+	dataList[fd].reset();
+	cout << "fd " << fd << "is deleted"  << endl;
 }
 
 void Epoller::handleExpired()

@@ -10,10 +10,15 @@ myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/base/CountDownLatch.h
 myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/base/CurrentThread.h
 myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/base/MutexLock.h
 myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/base/Thread.h
+myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/base/utility.h
+myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/httpData.h
+myServer/CMakeFiles/server.dir/Channel.cc.o: ../myServer/timer.h
 
 myServer/CMakeFiles/server.dir/Epoller.cc.o: ../myServer/Channel.h
 myServer/CMakeFiles/server.dir/Epoller.cc.o: ../myServer/Epoller.cc
 myServer/CMakeFiles/server.dir/Epoller.cc.o: ../myServer/Epoller.h
+myServer/CMakeFiles/server.dir/Epoller.cc.o: ../myServer/base/utility.h
+myServer/CMakeFiles/server.dir/Epoller.cc.o: ../myServer/httpData.h
 myServer/CMakeFiles/server.dir/Epoller.cc.o: ../myServer/timer.h
 
 myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/Channel.h
@@ -25,6 +30,9 @@ myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/base/CountDownLatch.h
 myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/base/CurrentThread.h
 myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/base/MutexLock.h
 myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/base/Thread.h
+myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/base/utility.h
+myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/httpData.h
+myServer/CMakeFiles/server.dir/EventLoop.cc.o: ../myServer/timer.h
 
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/Channel.h
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/Epoller.h
@@ -36,6 +44,9 @@ myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/base/CountDownL
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/base/CurrentThread.h
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/base/MutexLock.h
 myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/base/Thread.h
+myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/base/utility.h
+myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/httpData.h
+myServer/CMakeFiles/server.dir/EventLoopThread.cc.o: ../myServer/timer.h
 
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/Channel.h
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/Epoller.h
@@ -48,6 +59,9 @@ myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/base/CountD
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/base/CurrentThread.h
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/base/MutexLock.h
 myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/base/Thread.h
+myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/base/utility.h
+myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/httpData.h
+myServer/CMakeFiles/server.dir/EventLoopThreadPool.cc.o: ../myServer/timer.h
 
 myServer/CMakeFiles/server.dir/TcpServer.cc.o: ../myServer/Channel.h
 myServer/CMakeFiles/server.dir/TcpServer.cc.o: ../myServer/Epoller.h
@@ -115,8 +129,10 @@ myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/base/CurrentThread.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/base/MutexLock.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/base/Thread.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/base/utility.h
+myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/httpData.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/imageData.cc
 myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/imageData.h
+myServer/CMakeFiles/server.dir/imageData.cc.o: ../myServer/timer.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv/cxcore.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/calib3d.hpp
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/calib3d/calib3d_c.h
@@ -185,7 +201,6 @@ myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/flann/
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/flann/result_set.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/flann/sampling.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/flann/saving.h
-myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/flann/timer.h
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/highgui.hpp
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/highgui/highgui.hpp
 myServer/CMakeFiles/server.dir/imageData.cc.o: /usr/local/include/opencv2/highgui/highgui_c.h
@@ -266,14 +281,6 @@ myServer/CMakeFiles/server.dir/main.cc.o: ../myServer/timer.h
 
 myServer/CMakeFiles/server.dir/test.cc.o: ../myServer/test.cc
 
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/Channel.h
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/Epoller.h
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/EventLoop.h
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/base/Condition.h
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/base/CountDownLatch.h
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/base/CurrentThread.h
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/base/MutexLock.h
-myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/base/Thread.h
 myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/base/utility.h
 myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/httpData.h
 myServer/CMakeFiles/server.dir/timer.cc.o: ../myServer/timer.cc

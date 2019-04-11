@@ -1,11 +1,14 @@
 #pragma once
-#include "base/utility.h"
-#include "EventLoop.h"
-#include "Channel.h"
 #include "timer.h"
+#include "base/utility.h"
+
 #include <memory>
 
 using namespace std;
+
+class EventLoop;
+class timerNode;
+class Channel;
 
 enum HttpMethod
 {
@@ -23,7 +26,8 @@ enum ConnectionState{
 enum ParseState{
 	PARSE_LINE = 1,
 	PARSE_HEAD,
-	PARSE_BODY
+	PARSE_BODY,
+	PARSE_FIN
 };
 
 
@@ -99,6 +103,7 @@ private:
 	void handleConn();
 	void handleRead();
 	void handleWrite();
+	void reset();
 	void doError(string error = "default");
 };
 

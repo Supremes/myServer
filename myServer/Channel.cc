@@ -60,7 +60,7 @@ void Channel::handleEvents()
 	if(revents_ & EPOLLERR){
 		handleError();
 	}
-	//handleConn();
+	handleConn();
 }
 
 void Channel::remove()

@@ -28,7 +28,6 @@ void timerNode::update(int timeout)
 
 void timerNode::clearRequests()
 {
-	
 	spHttpData.reset();
 	this->setDeleted();
 }
@@ -58,7 +57,6 @@ void timerNodeManager::handleExpiredEvent()
 {
 	while(!timerNodeQueue.empty()){
 		spTimerNode tNode = timerNodeQueue.top();
-		//cout << "handleExpiredEvent..." << endl;
 		if(tNode->isDeleted() == true)
 			timerNodeQueue.pop();
 		else if(tNode->isValid() == false)

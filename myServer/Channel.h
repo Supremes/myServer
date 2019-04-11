@@ -67,17 +67,17 @@ public:
 		return events_;
 	}
 
-	uint32_t& getLastEvents()
-	{
-		return lastEvents_;
-	}
+	// uint32_t& getLastEvents()
+	// {
+	// 	return lastEvents_;
+	// }
 
-	bool EqualAndUpdateLastEvents()
-	{
-		bool ret = (lastEvents_ == events_);
-		lastEvents_ = events_;
-		return ret;
-	}
+	// bool EqualAndUpdateLastEvents()
+	// {
+	// 	bool ret = (lastEvents_ == events_);
+	// 	lastEvents_ = events_;
+	// 	return ret;
+	// }
 	void disableAll();
 	void remove();
 private:
@@ -96,7 +96,7 @@ private:
 	
 	uint32_t events_;	//由用户设置
 	uint32_t revents_;	//由EventLoop/Epoller设置
-	uint32_t lastEvents_;
+	//uint32_t lastEvents_;
 
 };
 

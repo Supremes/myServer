@@ -33,12 +33,7 @@ void server::start()
 
 server::~server()
 {
-	// loop_->assertInLoopThread();
-	// for(ConnectionMap::iterator it = connections_.begin(); it != connections_.end(); it++){
-	// 	spHttpData conn(it->second);
-	// 	it->second.reset();
-	// 	conn->getLoop()->runInLoop(bind(&httpData::handleClose, conn));
-	// }
+
 }
 void server::handleNewConnection()
 {
@@ -48,8 +43,7 @@ void server::handleNewConnection()
 	int accept_fd = 0;
 	while((accept_fd = accept(listenfd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0){
 		EventLoop *curLoop = pool_->getNextLoop();
-		cout << "getNextLoop" << endl;
-		cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << endl;
+		cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port) << " fd = " << accept_fd << endl;
 
 		// 限制服务器的最大并发连接数
         if (accept_fd >= MAXFDS)
@@ -60,13 +54,11 @@ void server::handleNewConnection()
 		
 		if(setSocketNonBlocking(accept_fd) < 0){
 			perror("set non block failed!");
-		}
-		
+		}		
 		setSocketNodelay(accept_fd);
 		setSocketNoLinger(accept_fd);
 
 		spHttpData accept_http(new httpData(curLoop, accept_fd));
-		connections_[accept_fd] = accept_http;
 		accept_http->getChannel()->setHolder(accept_http);
 		curLoop->queueInLoop(bind(&httpData::handleNewConn, accept_http));	//加入到pendingFuntors
 	}
