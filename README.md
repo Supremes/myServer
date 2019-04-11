@@ -19,14 +19,18 @@
 - 线程数为４
 #### 测试结果
 1.  测试时长为１秒
+
 ![](https://upload-images.jianshu.io/upload_images/569253-80306c2dae149563.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 2.  测试时长为60秒
+
 ![](https://upload-images.jianshu.io/upload_images/569253-9c3fc921702656c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #### cpu负载
 - 空闲负载:
+
 ![cpu空闲负载.png](https://upload-images.jianshu.io/upload_images/569253-fa2cf21c801e37a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - 连接负载:
+
 ![cpu负载.png](https://upload-images.jianshu.io/upload_images/569253-b978ff479a7f2959.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
