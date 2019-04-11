@@ -1,5 +1,5 @@
 ### 项目简介：
- - 基于Reactor并发模型开发的非阻塞IO服务器，采用了one loop per thread + 线程池的多线程编程模型，解析了get、head静态请求，支持优雅关闭连接。
+ - 基于Reactor并发模型开发的非阻塞IO服务器，采用了one loop per thread + 线程池的多线程编程模型，解析了get、head静态请求，支持优雅关闭连接,webbench压力测试,短连接QPS 2W+
 
 ### 技术点及工作：
 - 使用Epoll水平触发的IO多路复用技术
